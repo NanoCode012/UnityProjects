@@ -19,13 +19,13 @@ public class ShowInstruction : MonoBehaviour {
 
 	public void ShowLine2()
 	{
-		line0.text = "Seriously?!!";
-		line1.text = "YES";
+		line0.text = "Up/Down Arrow keys to move\nup and down";
+		line1.text = "Yes!";
 	}
 
 	public void ShowLine3()
 	{
-		line2.text = "You make the ball...\n bounce";
+		line2.text = "and That's it!";
 		line3.text = "Thank you!";
 	}
 

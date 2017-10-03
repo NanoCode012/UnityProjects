@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4210312302b764339bbd0542d6606be4
+timeCreated: 1507016715
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sci Fied 2002
+  fontNames:
+  - Sci Fied 2002
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
