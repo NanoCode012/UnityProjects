@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour {
     float xMax;
     float yMin;
     float yMax;
-    public bool useMouse;
+
+	public bool useMouse;
+
     public GameObject acidball;
+	float fireRate = 0.33f;//higher values mean fire slower
     Camera mainCamera = new Camera();
  
 	void Start () {
@@ -41,40 +44,59 @@ public class PlayerController : MonoBehaviour {
         //allows mouse control
         if (useMouse)
         {
-            var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);//Screen is GUI
-            var posX = Mathf.Clamp(mousePos.x, xMin, xMax);
-            var posY = Mathf.Clamp(mousePos.y, yMin, yMax);
-            transform.position = new Vector3(posX, posY, transform.position.z);
+            MouseMovement();
         }
         else
         {
-			//allows diagonal movement
-			if (Input.GetKey(KeyCode.LeftArrow))
-			{
-				transform.position -= new Vector3(x_speed * Time.deltaTime, 0f, 0f);//moves x_speed per sec
-			}
-			else if (Input.GetKey(KeyCode.RightArrow))
-			{
-				transform.position += new Vector3(x_speed * Time.deltaTime, 0f, 0f);
-			}
-			if (Input.GetKey(KeyCode.UpArrow))
-			{
-				transform.position += new Vector3(0f, y_speed * Time.deltaTime, 0f);//moves y_speed per sec
-			}
-			else if (Input.GetKey(KeyCode.DownArrow))
-			{
-				transform.position -= new Vector3(0f, y_speed * Time.deltaTime, 0f);
-			}
-
-			//clamps player inside screen
-			var newX = Mathf.Clamp(transform.position.x, xMin, xMax);
-			var newY = Mathf.Clamp(transform.position.y, yMin, yMax);
-			transform.position = new Vector3(newX, newY, transform.position.z);
-
-            if (Input.GetKey(KeyCode.Space))
+            KeyboardMovement();
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(acidball, transform.position, Quaternion.identity);
+                InvokeRepeating("Fire", 0f, fireRate);
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                CancelInvoke("Fire");
             }
         }
-	}
+    }
+
+    void KeyboardMovement()
+    {
+        //allows diagonal movement
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.position += Vector3.left * x_speed * Time.deltaTime;//moves x_speed per sec
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.position += Vector3.right * x_speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.position += Vector3.up * y_speed * Time.deltaTime;//moves y_speed per sec
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.position += Vector3.down * y_speed * Time.deltaTime;
+        }
+
+        //clamps player inside screen
+        var newX = Mathf.Clamp(transform.position.x, xMin, xMax);
+        var newY = Mathf.Clamp(transform.position.y, yMin, yMax);
+        transform.position = new Vector3(newX, newY, transform.position.z);
+    }
+
+    void MouseMovement()
+    {
+        var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);//Screen is GUI
+        var posX = Mathf.Clamp(mousePos.x, xMin, xMax);
+        var posY = Mathf.Clamp(mousePos.y, yMin, yMax);
+        transform.position = new Vector3(posX, posY, transform.position.z);
+    }
+
+    void Fire()
+    {
+		var projectile = Instantiate(acidball, transform.position, Quaternion.identity);
+		projectile.GetComponent<Rigidbody2D>().velocity += Vector2.up * x_speed;
+    }
 }
