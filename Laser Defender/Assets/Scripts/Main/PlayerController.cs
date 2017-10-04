@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     float yMin;
     float yMax;
     public bool useMouse;
+    public GameObject acidball;
     Camera mainCamera = new Camera();
  
 	void Start () {
@@ -69,6 +70,11 @@ public class PlayerController : MonoBehaviour {
 			var newX = Mathf.Clamp(transform.position.x, xMin, xMax);
 			var newY = Mathf.Clamp(transform.position.y, yMin, yMax);
 			transform.position = new Vector3(newX, newY, transform.position.z);
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Instantiate(acidball, transform.position, Quaternion.identity);
+            }
         }
 	}
 }
