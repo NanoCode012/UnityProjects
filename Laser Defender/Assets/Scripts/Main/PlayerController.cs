@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public bool useMouse;
 
     public GameObject acidball;
-	//float fireRate = 0.33f;//higher values mean fire slower//uncomment this when use auto-fire
+	float fireRate = 0.33f;//higher value means fire slower
     Camera mainCamera = new Camera();
  
 	void Start () {
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         yMax = topRight.y - padding;
 	}
 
-	void FixedUpdate()//for smoother movement, 0.02s per frame I believe
+	void Update()
 	{
         
         //allows mouse control
@@ -50,17 +50,15 @@ public class PlayerController : MonoBehaviour {
         {
             KeyboardMovement();
 
-            //[Feature : Auto-fire] todo Has a bug of neverending projectile
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    InvokeRepeating("Fire", 0.00000000001f, fireRate);
-            //}
-            //if (Input.GetKeyUp(KeyCode.Space))
-            //{
-            //    CancelInvoke("Fire");
-            //}
-
-            if (Input.GetKeyDown(KeyCode.Space)) Fire();
+			//Auto-Fire
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+			    InvokeRepeating("Fire", 0.000001f, fireRate);
+			}
+			if (Input.GetKeyUp(KeyCode.Space))
+			{
+			    CancelInvoke("Fire");
+			}
         }
     }
 
