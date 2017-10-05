@@ -11,14 +11,17 @@ public class PlayerController : MonoBehaviour {
     float xMax;
     float yMin;
     float yMax;
+    public float health = 500;
 
 	public bool useMouse;
 
     public GameObject acidball;
 	float fireRate = 0.33f;//higher value means fire slower
     Camera mainCamera = new Camera();
+    LevelManager levelManager;
  
 	void Start () {
+        levelManager = FindObjectOfType<LevelManager>();
         mainCamera = Camera.main;
         //distance from player to camera
         var distance = transform.position.z - mainCamera.transform.position.z;
@@ -99,6 +102,17 @@ public class PlayerController : MonoBehaviour {
     void Fire()
     {
 		var projectile = Instantiate(acidball, transform.position, Quaternion.identity);
-		projectile.GetComponent<Rigidbody2D>().velocity += Vector2.up * x_speed;
+		projectile.GetComponent<Rigidbody2D>().velocity = Vector2.up * x_speed;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        var projectile = col.GetComponent<EnemyProjectile>();
+        if (projectile)
+        {
+            health -= projectile.GetDamage();
+            projectile.Hit();
+            if (health <= 0) levelManager.LoadLevel("Lose");
+        }
     }
 }
