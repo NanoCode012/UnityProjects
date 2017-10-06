@@ -6,7 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public float health = 160f;
     public GameObject acidBallEnemy;
-    float speed = 6f;
+    public float speed = 5f;
 
 
 	void OnTriggerEnter2D(Collider2D col)

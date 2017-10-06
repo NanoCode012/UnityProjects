@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public bool useMouse;
 
     public GameObject acidball;
-	float fireRate = 0.33f;//higher value means fire slower
+    float fireInterval = 0.33f;//higher value means fire slower
     Camera mainCamera = new Camera();
     LevelManager levelManager;
  
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 			//Auto-Fire
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
-			    InvokeRepeating("Fire", 0.000001f, fireRate);
+			    InvokeRepeating("Fire", 0.000001f, fireInterval);
 			}
 			if (Input.GetKeyUp(KeyCode.Space))
 			{
