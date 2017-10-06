@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerProjectile : MonoBehaviour {
+public class Projectile : MonoBehaviour {
     public float damage = 100;
 
     public float GetDamage()

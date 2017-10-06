@@ -11,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-        var projectile = col.GetComponent<PlayerProjectile>();
+        var projectile = col.GetComponent<Projectile>();
         if (projectile)//it seems this takes slightly more time
         //if (col.gameObject.name == "AcidBallClone)")//this is slightly faster but 
                                                       //What if there is more types of projectile? 

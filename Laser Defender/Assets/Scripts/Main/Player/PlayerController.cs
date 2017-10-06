@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        var projectile = col.GetComponent<EnemyProjectile>();
+        var projectile = col.GetComponent<Projectile>();
         if (projectile)
         {
             health -= projectile.GetDamage();
