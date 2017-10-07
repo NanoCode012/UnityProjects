@@ -9,25 +9,27 @@ public class EnemySpawner : MonoBehaviour {
     float width = 5.65f;
     float height = 3.76f;
 	float speed;
-    const int divider = 200;//get from test
+    const int divider = 200;
 	float minX, maxX;
 
     bool dir;//true is left, false is right
+    float spawnDelay = 0.8f;
 	
 	void Start ()
     {
-        SpawnEnemyAtPosition();
+        Invoke("SpawnEnemyTillFullPosition", spawnDelay);
 
-        //Another method could be done using the below(I made the below, but it takes twice as long to process)
-        //var enemyPostions = FindObjectsOfType<Position>();
-        //foreach (var pos in enemyPostions)
-        //{
-        //	var enemy = Instantiate(enemyPrefab, pos.transform.position, Quaternion.identity);
-        //	enemy.transform.parent = pos.transform;
-        //}
+        /*
+        Another method could be done using the below(I made the below, but it takes twice as long to process)
+        var enemyPostions = FindObjectsOfType<Position>();
+        foreach (var pos in enemyPostions)
+        {
+        	var enemy = Instantiate(enemyPrefab, pos.transform.position, Quaternion.identity);
+        	enemy.transform.parent = pos.transform;
+        }
+        */
 
         dir = (Random.Range(0, 2) == 0);
-
         var distToCamera = transform.position.z - Camera.main.transform.position.z;
         var bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, distToCamera));
         var topRight = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, distToCamera));
@@ -38,13 +40,27 @@ public class EnemySpawner : MonoBehaviour {
 
     }
 
-    private void SpawnEnemyAtPosition()
+    void SpawnEnemyAtPosition()
     {
         foreach (Transform child in transform)
         {
             var enemy = Instantiate(enemyPrefab, child.position, Quaternion.identity);
             enemy.transform.parent = child;
         }
+    }
+
+    void SpawnEnemyTillFullPosition()
+    {
+		//print("Being run");
+        var freePosition = NextFreePosition();
+        if (freePosition)
+        {
+            var ship = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity);
+            ship.transform.parent = freePosition;
+            Invoke("SpawnEnemyTillFullPosition", spawnDelay);
+        }
+        else CancelInvoke("SpawnEnemyTillFullPosition");
+
     }
 
     void OnDrawGizmos()
@@ -85,8 +101,20 @@ public class EnemySpawner : MonoBehaviour {
     {
         if (AllMembersDead())
         {
-            SpawnEnemyAtPosition();
+            Invoke("SpawnEnemyTillFullPosition", spawnDelay);
         }
+    }
+
+    Transform NextFreePosition()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.childCount == 0)
+            {
+                return child;
+            }
+        }
+        return null;
     }
 
     bool AllMembersDead()
