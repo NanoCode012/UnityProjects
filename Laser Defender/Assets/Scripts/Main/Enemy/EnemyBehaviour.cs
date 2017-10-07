@@ -6,7 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public float health = 160f;
     public GameObject acidBallEnemy;
-    public float speed = 5f;
+    public float projectileSpeed = 5f;
 
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -34,6 +34,6 @@ public class EnemyBehaviour : MonoBehaviour
     void Fire()
     {
 		var projectile = Instantiate(acidBallEnemy, transform.position, Quaternion.identity);
-		projectile.GetComponent<Rigidbody2D>().velocity = Vector2.down * speed;
+        projectile.GetComponent<Rigidbody2D>().velocity = Vector2.down * projectileSpeed;
     }
 }

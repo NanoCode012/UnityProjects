@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour {
 	
 	void Start ()
     {
-        Invoke("SpawnEnemyTillFullPosition", spawnDelay);
+        SpawnEnemyTillFullPosition();
 
         /*
         Another method could be done using the below(I made the below, but it takes twice as long to process)
@@ -101,7 +101,8 @@ public class EnemySpawner : MonoBehaviour {
     {
         if (AllMembersDead())
         {
-            Invoke("SpawnEnemyTillFullPosition", spawnDelay);
+            SpawnEnemyTillFullPosition();
+            print("All dead");
         }
     }
 
