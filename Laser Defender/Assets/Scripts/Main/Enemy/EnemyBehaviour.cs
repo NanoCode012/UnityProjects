@@ -7,8 +7,15 @@ public class EnemyBehaviour : MonoBehaviour
     public float health = 160f;
     public GameObject acidBallEnemy;
     public float projectileSpeed = 5f;
+    public int points = 1;
 
+    ScoreKeeper scoreKeeper;
 
+    void Start()
+    {
+        //scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
 	void OnTriggerEnter2D(Collider2D col)
 	{
         var projectile = col.GetComponent<Projectile>();
@@ -19,7 +26,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             health -= projectile.GetDamage();
             projectile.Hit();
-            if (health <= 0) Destroy(gameObject);
+            if (health <= 0) {
+                scoreKeeper.Score(points);
+                Destroy(gameObject);
+            }
         }
 	}
 
