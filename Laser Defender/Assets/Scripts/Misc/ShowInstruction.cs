@@ -25,7 +25,7 @@ public class ShowInstruction : MonoBehaviour {
 
 	public void ShowLine3()
 	{
-		line2.text = "and That's it!";
+		line2.text = "and hold Space to Fire!";
 		line3.text = "Thank you!";
 	}
 
