@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     float x_speed = 3.7f;
     float y_speed = 2.3f;
-    float padding = 0.6f;
+    float padding = 0.8f;
     float xMin;
     float xMax;
     float yMin;
@@ -48,6 +48,15 @@ public class PlayerController : MonoBehaviour {
         if (useMouse)
         {
             MouseMovement();
+			//Auto-Fire
+            if (Input.GetMouseButtonDown(0))
+			{
+				InvokeRepeating("Fire", 0.000001f, fireInterval);
+			}
+            if (Input.GetMouseButtonUp(0))
+            {
+				CancelInvoke("Fire");
+			}
         }
         else
         {
