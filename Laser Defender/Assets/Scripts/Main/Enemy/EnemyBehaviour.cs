@@ -9,7 +9,12 @@ public class EnemyBehaviour : MonoBehaviour
     public float projectileSpeed = 5f;
     public int points = 1;
 
+    public AudioClip collision;
+    public AudioClip fireELaser;
+
     ScoreKeeper scoreKeeper;
+
+
 
     void Start()
     {
@@ -26,6 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             health -= projectile.GetDamage();
             projectile.Hit();
+            AudioSource.PlayClipAtPoint(collision, Camera.main.transform.position);
             if (health <= 0) {
                 scoreKeeper.Score(points);
                 Destroy(gameObject);
@@ -35,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Random.Range(0,20) == 1)//there is 1/20 chance to shoot per frame
+        if (Random.Range(0,40) == 1)//there is 1/20 chance to shoot per frame
         {
             Fire();
         }
@@ -45,5 +51,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
 		var projectile = Instantiate(acidBallEnemy, transform.position, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().velocity = Vector2.down * projectileSpeed;
+        AudioSource.PlayClipAtPoint(fireELaser, Camera.main.transform.position);
     }
 }

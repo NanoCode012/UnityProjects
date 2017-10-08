@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
     float yMin;
     float yMax;
     public float health = 500;
+    public AudioClip collision;
+	public AudioClip firePLaser;
 
 	public bool useMouse;
 
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour {
     {
 		var projectile = Instantiate(acidball, transform.position, Quaternion.identity);
 		projectile.GetComponent<Rigidbody2D>().velocity = Vector2.up * x_speed;
+        AudioSource.PlayClipAtPoint(firePLaser, Camera.main.transform.position);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -121,6 +124,7 @@ public class PlayerController : MonoBehaviour {
         {
             health -= projectile.GetDamage();
             projectile.Hit();
+            AudioSource.PlayClipAtPoint(collision, Camera.main.transform.position);
             if (health <= 0) levelManager.LoadLevel("Lose");
         }
     }
