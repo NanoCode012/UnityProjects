@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
+    public int SceneBuildIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
 	public void QuitLevel() {
 		print("Quit level initiated");
 		Application.Quit();

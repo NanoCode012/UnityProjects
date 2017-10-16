@@ -7,11 +7,11 @@ public class SoundController : MonoBehaviour {
 
     public static bool mute;
     public Text text;
-    StayAwake musicPlayer;
+    MusicPlayer musicPlayer;
     void Start()
     {
         CheckIfMissing();
-		musicPlayer = FindObjectOfType<StayAwake>();
+		musicPlayer = FindObjectOfType<MusicPlayer>();
         ChangeText();
     }
 
@@ -37,10 +37,10 @@ public class SoundController : MonoBehaviour {
 
     void CheckIfMissing()
     {
-		if (!FindObjectOfType<StayAwake>())
+        if (!FindObjectOfType<MusicPlayer>())
 		{
             Debug.LogWarning("Error MusicPlayer not found. Specifically StayAwake component is gone. " +
-                             "Did you start in the correct scene? Start Scene. Debug : " + FindObjectOfType<StayAwake>());
+                             "Did you start in the correct scene? Start Scene. Debug : " + FindObjectOfType<MusicPlayer>());
 		}
     }
 }
