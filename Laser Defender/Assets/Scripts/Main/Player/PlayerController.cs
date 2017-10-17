@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour {
     float xMax;
     float yMin;
     float yMax;
-    public float health = 500;
+    public float health = 500f;
+
     public AudioClip collision;
 	public AudioClip firePLaser;
 
@@ -19,11 +20,14 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject acidball;
     float fireInterval = 0.33f;//higher value means fire slower
+
     Camera mainCamera = new Camera();
     LevelManager levelManager;
+    HealthBar healthBar;
  
-	void Start () {
+    void Start () {
         levelManager = FindObjectOfType<LevelManager>();
+		healthBar = FindObjectOfType<HealthBar>();
         mainCamera = Camera.main;
         //distance from player to camera
         var distance = transform.position.z - mainCamera.transform.position.z;
@@ -45,7 +49,6 @@ public class PlayerController : MonoBehaviour {
 
 	void Update()
 	{
-        
         //allows mouse control
         if (useMouse)
         {
@@ -122,10 +125,17 @@ public class PlayerController : MonoBehaviour {
         var projectile = col.GetComponent<Projectile>();
         if (projectile)
         {
-            health -= projectile.GetDamage();
-            projectile.Hit();
-            AudioSource.PlayClipAtPoint(collision, Camera.main.transform.position);
-            if (health <= 0) levelManager.LoadLevel("Lose");
+            TakeDamage(projectile);
         }
+    }
+
+    void TakeDamage(Projectile projectile)
+    {
+        var damage = projectile.GetDamage();
+        health -= damage;
+        healthBar.Hit(damage);
+        projectile.Hit();
+        AudioSource.PlayClipAtPoint(collision, Camera.main.transform.position);
+        if (health <= 0) levelManager.LoadLevel("Lose");
     }
 }

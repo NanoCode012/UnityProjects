@@ -19,16 +19,6 @@ public class EnemySpawner : MonoBehaviour {
     {
         SpawnEnemyTillFullPosition();
 
-        /*
-        Another method could be done using the below(I made the below, but it takes twice as long to process)
-        var enemyPostions = FindObjectsOfType<Position>();
-        foreach (var pos in enemyPostions)
-        {
-        	var enemy = Instantiate(enemyPrefab, pos.transform.position, Quaternion.identity);
-        	enemy.transform.parent = pos.transform;
-        }
-        */
-
         dir = (Random.Range(0, 2) == 0);
         var distToCamera = transform.position.z - Camera.main.transform.position.z;
         var bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, distToCamera));
@@ -51,7 +41,6 @@ public class EnemySpawner : MonoBehaviour {
 
     void SpawnEnemyTillFullPosition()
     {
-		//print("Being run");
         var freePosition = NextFreePosition();
         if (freePosition)
         {
@@ -61,7 +50,17 @@ public class EnemySpawner : MonoBehaviour {
         }
         else CancelInvoke("SpawnEnemyTillFullPosition");
 
-    }
+		/*
+            Another method could be done using the below(I made the below, but it takes twice as long to process)
+            var enemyPostions = FindObjectsOfType<Position>();
+            foreach (var pos in enemyPostions)
+            {
+            	var enemy = Instantiate(enemyPrefab, pos.transform.position, Quaternion.identity);
+            	enemy.transform.parent = pos.transform;
+            }
+        */
+
+	}
 
     void OnDrawGizmos()
     {
@@ -102,7 +101,6 @@ public class EnemySpawner : MonoBehaviour {
         if (AllMembersDead())
         {
             SpawnEnemyTillFullPosition();
-            print("All dead");
         }
     }
 
