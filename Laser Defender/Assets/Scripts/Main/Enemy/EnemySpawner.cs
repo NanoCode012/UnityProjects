@@ -14,11 +14,10 @@ public class EnemySpawner : MonoBehaviour {
 
     bool dir;//true is left, false is right
     float spawnDelay = 0.8f;
-	
+    float countdown = 5f;
+
 	void Start ()
     {
-        SpawnEnemyTillFullPosition();
-
         dir = (Random.Range(0, 2) == 0);
         var distToCamera = transform.position.z - Camera.main.transform.position.z;
         var bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, distToCamera));
@@ -27,7 +26,6 @@ public class EnemySpawner : MonoBehaviour {
         maxX = topRight.x;
 
         speed = Screen.width / divider;
-
     }
 
     void SpawnEnemyAtPosition()
@@ -98,9 +96,11 @@ public class EnemySpawner : MonoBehaviour {
 
     void Update()
     {
-        if (AllMembersDead())
+        if (AllMembersDead() && countdown <= 0f)
         {
             SpawnEnemyTillFullPosition();
+        }else {
+			countdown -= Time.deltaTime;
         }
     }
 
