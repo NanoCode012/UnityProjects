@@ -20,7 +20,7 @@ public class MusicPlayer : MonoBehaviour {
 			instance = this;
 			DontDestroyOnLoad (gameObject);
             music = GetComponent<AudioSource>();
-            SceneManager.sceneLoaded += OnLevelLoaded;
+            SceneManager.sceneLoaded += OnLevelLoaded;//subscribes to OnLevelLoaded(delegates)
 		}
 	}
 
@@ -28,16 +28,18 @@ public class MusicPlayer : MonoBehaviour {
         PlayMusic(FindObjectOfType<LevelManager>().SceneBuildIndex());
     }
 
-    void PlayMusic(int index)
+    void PlayMusic(int sceneIndex)
     {
         
-        switch(index)
+        switch(sceneIndex)
         {
             case 0:
                 if (music.clip == startClip) break;
                 music.Stop();
                 music.clip = startClip;
-				music.loop = true;
+				music.loop = true;//Can't refactor this else, the break above will cause
+                                  //maybe 2 AudioSource to run or cause a glitch.
+                                  //haven't tested it yet, but highly likely sth will go wrong
 				music.Play();
                 break;
             case 4:
