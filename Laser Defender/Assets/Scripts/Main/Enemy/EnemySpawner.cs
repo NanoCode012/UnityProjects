@@ -14,7 +14,6 @@ public class EnemySpawner : MonoBehaviour {
 
     bool dir;//true is left, false is right
     float spawnDelay = 0.8f;
-    float countdown = 5f;
 
 	void Start ()
     {
@@ -96,11 +95,9 @@ public class EnemySpawner : MonoBehaviour {
 
     void Update()
     {
-        if (AllMembersDead() && countdown <= 0f)
+        if (AllMembersDead())
         {
             SpawnEnemyTillFullPosition();
-        }else {
-			countdown -= Time.deltaTime;
         }
     }
 

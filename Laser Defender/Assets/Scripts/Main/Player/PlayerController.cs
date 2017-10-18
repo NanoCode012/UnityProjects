@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public AudioClip collision;
 	public AudioClip firePLaser;
 
-	public bool useMouse;
+	public static bool useMouse;
 
     public GameObject acidball;
     float fireInterval = 0.33f;//higher value means fire slower
