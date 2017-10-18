@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DifficultyController : MonoBehaviour {
 
@@ -12,61 +11,93 @@ public class DifficultyController : MonoBehaviour {
         hard = 2,
         god = 3
     }
-    Difficulty difficulty;
+    static Difficulty mode = Difficulty.easy;
+
+    int timesToActivate = 10;
+    PlayerController player;
+
+
     void Start()
     {
-		StartCorrespondingFunction();
+        player = FindObjectOfType<PlayerController>();
+
+        if (player)
+        {
+			StartCorrespondingFunction();
+            print("run");
+
+        }
     }
 
     void StartCorrespondingFunction()
     {
-		switch (difficulty)
+		switch (mode)
 		{
 			case Difficulty.easy:
-				Easy();
+                EasyDifficulty();
 				break;
 			case Difficulty.normal:
-				Normal();
+                NormalDifficulty();
 				break;
 			case Difficulty.hard:
-				Hard();
+                HardDifficulty();
 				break;
 			case Difficulty.god:
-				God();
+                GodDifficulty();
 				break;
 		}
     }
 
     public void Easy() {
-        difficulty = Difficulty.easy;
+        mode = Difficulty.easy;
+        PlayerController.useMouse = false;
 
     }
 
     public void Normal() {
-        difficulty = Difficulty.normal;
+        mode = Difficulty.normal;
+        PlayerController.useMouse = false;
     }
 
     public void Hard(){
-        difficulty = Difficulty.hard;
+        mode = Difficulty.hard;
+        PlayerController.useMouse = false;
     }
-	
-    public void God(){
-		difficulty = Difficulty.god;
+
+	public void ActivateGod()
+	{
+		timesToActivate--;
+		if (timesToActivate <= 0)
+		{
+			God();
+			timesToActivate = 10;
+		}
+	}
+
+    void God(){
+		mode = Difficulty.god;
+        PlayerController.useMouse = true;
     }
 
 	void EasyDifficulty()
 	{
+        
 	}
 
 	void NormalDifficulty()
 	{
+        
 	}
 
 	void HardDifficulty()
 	{
+        
 	}
+
 
 	void GodDifficulty()
 	{
+        
 	}
+
 }
