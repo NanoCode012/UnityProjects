@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    float SplashScreenTime = 5.3f;
+    void Start(){
+        if (SceneManager.GetActiveScene().buildIndex == 0){
+            //Invoke("LoadNextLevel", SplashScreenTime);
+            StartCoroutine(SplashScreen());
+        }
+    }
+
+    IEnumerator SplashScreen(){
+        yield return new WaitForSeconds(SplashScreenTime);
+        LoadNextLevel();
+    }
+
 	public void LoadLevel(string name) {
 		//print ("Level load requested for: " +name);
 		SceneManager.LoadScene(name,LoadSceneMode.Single);

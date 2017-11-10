@@ -7,9 +7,8 @@ public class MusicPlayer : MonoBehaviour {
 
 	public static MusicPlayer instance;
 
-    public AudioClip startClip;
-    public AudioClip gameClip;
-    public AudioClip endClip;
+    public AudioClip splashScreenClip;
+    public AudioClip startScreenClip;
 
     AudioSource music;
 
@@ -30,32 +29,19 @@ public class MusicPlayer : MonoBehaviour {
 
     void PlayMusic(int sceneIndex)
     {
-        
-        switch(sceneIndex)
+
+        switch (sceneIndex)
         {
             case 0:
-                if (music.clip == startClip) break;
-                music.Stop();
-                music.clip = startClip;
-				music.loop = true;//Can't refactor this else, the break above will cause
-                                  //maybe 2 AudioSource to run or cause a glitch.
-                                  //haven't tested it yet, but highly likely sth will go wrong
-				music.Play();
+                music.clip = splashScreenClip;
                 break;
-            case 4:
+            case 1:
+                if (music.clip == startScreenClip) break;
                 music.Stop();
-                music.clip = gameClip;
-				music.loop = true;
-				music.Play();
-                break;
-            case 6:
-                music.Stop();
-                music.clip = endClip;
-				music.loop = true;
-				music.Play();
+                music.clip = startScreenClip;
                 break;
         }
-
+        music.loop = true;
+        music.Play();
     }
-
 }
