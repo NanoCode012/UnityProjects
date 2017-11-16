@@ -5,43 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour {
 
-	public static MusicPlayer instance;
+    public AudioClip[] audioClips;
+    AudioSource audioSource;
 
-    public AudioClip splashScreenClip;
-    public AudioClip startScreenClip;
+    void Awake(){
+        audioSource = GetComponent<AudioSource>();
+        PlayAudio();
 
-    AudioSource music;
-
-	void Awake(){
-		if (instance != null && instance != this) {
-			Destroy (gameObject);
-		} else {
-			instance = this;
-			DontDestroyOnLoad (gameObject);
-            music = GetComponent<AudioSource>();
-            SceneManager.sceneLoaded += OnLevelLoaded;//subscribes to OnLevelLoaded(delegates)
-		}
-	}
-
-    void OnLevelLoaded(Scene scene, LoadSceneMode loadsceneMode){
-        PlayMusic(FindObjectOfType<LevelManager>().SceneBuildIndex());
+        SceneManager.sceneLoaded += OnLevelLoaded;
+        DontDestroyOnLoad(gameObject);
     }
 
-    void PlayMusic(int sceneIndex)
+    void OnLevelLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
+        PlayAudio();
+    }
 
-        switch (sceneIndex)
-        {
-            case 0:
-                music.clip = splashScreenClip;
-                break;
-            case 1:
-                if (music.clip == startScreenClip) break;
-                music.Stop();
-                music.clip = startScreenClip;
-                break;
+    void PlayAudio()
+    {
+        var newClip = audioClips[SceneManager.GetActiveScene().buildIndex];
+        if (audioSource.clip != newClip){
+            audioSource.clip = newClip;
+            audioSource.Play();
         }
-        music.loop = true;
-        music.Play();
+
     }
 }
