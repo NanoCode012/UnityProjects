@@ -81,23 +81,19 @@ public class DifficultyController : MonoBehaviour {
 
 	void EasyDifficulty()
 	{
-        
 	}
 
 	void NormalDifficulty()
 	{
-        
 	}
 
 	void HardDifficulty()
 	{
-        
 	}
 
 
 	void GodDifficulty()
 	{
-        
 	}
 
 }
