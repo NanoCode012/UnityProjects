@@ -28,6 +28,9 @@ public class MusicPlayer : MonoBehaviour {
             audioSource.clip = newClip;
             audioSource.Play();
         }
+    }
 
+    public void ChangeVolume(float volume){
+        audioSource.volume = volume;
     }
 }

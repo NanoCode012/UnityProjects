@@ -21,7 +21,6 @@ public class LevelManager : MonoBehaviour {
 	public void LoadLevel(string name) {
 		//print ("Level load requested for: " +name);
 		SceneManager.LoadScene(name,LoadSceneMode.Single);
-
 	}
 
 	public void LoadNextLevel()

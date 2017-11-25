@@ -45,14 +45,21 @@ public class PlayerPrefsManager : MonoBehaviour {
     //
 
     public static void SetDifficulty(int difficulty){
-        if (0 <= difficulty && difficulty <= 2) {
+        if (1 <= difficulty && difficulty <= 4) {
             PlayerPrefs.SetInt(DIFFICULTY_KEY, difficulty);
         }else {
-            Debug.LogError("Difficulty cannot be set out of range. Only within 0->2. You input " + difficulty);//0 easy, 1 normal, 2 hard
+            Debug.LogError("Difficulty cannot be set out of range. Only within 0->2. You input " + difficulty);//1 easy, 2 normal, 3 hard, 4 god
         }
     }
 
     public static int GetDifficulty(){
         return PlayerPrefs.GetInt(DIFFICULTY_KEY);
+    }
+
+    //
+
+    public static void SetDefault(){
+        SetMasterVolume(0.36f);
+        SetDifficulty(1);
     }
 }
