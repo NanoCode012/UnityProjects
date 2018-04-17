@@ -1,69 +1,100 @@
 fileFormatVersion: 2
-guid: 5939fa07341394ec0a1f60de4841fc11
-timeCreated: 1511686506
+guid: 7f49c379700d34b55b686685a02d506b
+timeCreated: 1512056646
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: npc_cubimal_batterfly__x1_race_png_1354836243_0
-    21300002: npc_cubimal_batterfly__x1_race_png_1354836243_1
-    21300004: npc_cubimal_batterfly__x1_race_png_1354836243_2
-    21300006: npc_cubimal_batterfly__x1_race_png_1354836243_3
-    21300008: npc_cubimal_batterfly__x1_race_png_1354836243_4
-    21300010: npc_cubimal_batterfly__x1_race_png_1354836243_5
-    21300012: npc_cubimal_batterfly__x1_race_png_1354836243_6
-    21300014: npc_cubimal_batterfly__x1_race_png_1354836243_7
-    21300016: npc_cubimal_batterfly__x1_race_png_1354836243_8
-    21300018: npc_cubimal_batterfly__x1_race_png_1354836243_9
-    21300020: npc_cubimal_batterfly__x1_race_png_1354836243_10
-    21300022: npc_cubimal_batterfly__x1_race_png_1354836243_11
-    21300024: npc_cubimal_batterfly__x1_race_png_1354836243_12
-    21300026: npc_cubimal_batterfly__x1_race_png_1354836243_13
-    21300028: npc_cubimal_batterfly__x1_race_png_1354836243_14
-    21300030: npc_cubimal_batterfly__x1_race_png_1354836243_15
-    21300032: npc_cubimal_batterfly__x1_race_png_1354836243_16
-    21300034: npc_cubimal_batterfly__x1_race_png_1354836243_17
-    21300036: npc_cubimal_batterfly__x1_race_png_1354836243_18
-    21300038: npc_cubimal_batterfly__x1_race_png_1354836243_19
-    21300040: npc_cubimal_batterfly__x1_race_png_1354836243_20
-    21300042: npc_cubimal_batterfly__x1_race_png_1354836243_21
-    21300044: npc_cubimal_batterfly__x1_race_png_1354836243_22
-    21300046: npc_cubimal_batterfly__x1_race_png_1354836243_23
-    21300048: npc_cubimal_batterfly__x1_race_png_1354836243_24
-    21300050: npc_cubimal_batterfly__x1_race_png_1354836243_25
-    21300052: npc_cubimal_batterfly__x1_race_png_1354836243_26
-    21300054: npc_cubimal_batterfly__x1_race_png_1354836243_27
-    21300056: npc_cubimal_batterfly__x1_race_png_1354836243_28
-    21300058: npc_cubimal_batterfly__x1_race_png_1354836243_29
-    21300060: npc_cubimal_batterfly__x1_race_png_1354836243_30
-    21300062: npc_cubimal_batterfly__x1_race_png_1354836243_31
-    21300064: npc_cubimal_batterfly__x1_race_png_1354836243_32
-    21300066: npc_cubimal_batterfly__x1_race_png_1354836243_33
-    21300068: npc_cubimal_batterfly__x1_race_png_1354836243_34
-    21300070: npc_cubimal_batterfly__x1_race_png_1354836243_35
-    21300072: npc_cubimal_batterfly__x1_race_png_1354836243_36
-    21300074: npc_cubimal_batterfly__x1_race_png_1354836243_37
-    21300076: npc_cubimal_batterfly__x1_race_png_1354836243_38
-    21300078: npc_cubimal_batterfly__x1_race_png_1354836243_39
-    21300080: npc_cubimal_batterfly__x1_race_png_1354836243_40
-    21300082: npc_cubimal_batterfly__x1_race_png_1354836243_41
-    21300084: npc_cubimal_batterfly__x1_race_png_1354836243_42
-    21300086: npc_cubimal_batterfly__x1_race_png_1354836243_43
-    21300088: npc_cubimal_batterfly__x1_race_png_1354836243_44
-    21300090: npc_cubimal_batterfly__x1_race_png_1354836243_45
-    21300092: npc_cubimal_batterfly__x1_race_png_1354836243_46
-    21300094: npc_cubimal_batterfly__x1_race_png_1354836243_47
-    21300096: npc_cubimal_batterfly__x1_race_png_1354836243_48
-    21300098: npc_cubimal_batterfly__x1_race_png_1354836243_49
-    21300100: npc_cubimal_batterfly__x1_race_png_1354836243_50
-    21300102: npc_cubimal_batterfly__x1_race_png_1354836243_51
-    21300104: npc_cubimal_batterfly__x1_race_png_1354836243_52
-    21300106: npc_cubimal_batterfly__x1_race_png_1354836243_53
-    21300108: npc_cubimal_batterfly__x1_race_png_1354836243_54
-    21300110: npc_cubimal_batterfly__x1_race_png_1354836243_55
-    21300112: npc_cubimal_batterfly__x1_race_png_1354836243_56
-    21300114: npc_cubimal_batterfly__x1_race_png_1354836243_57
-    21300116: npc_cubimal_batterfly__x1_race_png_1354836243_58
-    21300118: npc_cubimal_batterfly__x1_race_png_1354836243_59
+    21300000: attack_0
+    21300002: attack_1
+    21300004: attack_2
+    21300006: attack_3
+    21300008: attack_4
+    21300010: attack_5
+    21300012: attack_6
+    21300014: attack_7
+    21300016: attack_8
+    21300018: attack_9
+    21300020: attack_10
+    21300022: attack_11
+    21300024: attack_12
+    21300026: attack_13
+    21300028: attack_14
+    21300030: attack_15
+    21300032: attack_16
+    21300034: attack_17
+    21300036: attack_18
+    21300038: attack_19
+    21300040: attack_20
+    21300042: attack_21
+    21300044: attack_22
+    21300046: attack_23
+    21300048: attack_24
+    21300050: attack_25
+    21300052: attack_26
+    21300054: attack_27
+    21300056: attack_28
+    21300058: attack_29
+    21300060: attack_30
+    21300062: attack_31
+    21300064: attack_32
+    21300066: attack_33
+    21300068: attack_34
+    21300070: attack_35
+    21300072: attack_36
+    21300074: attack_37
+    21300076: attack_38
+    21300078: attack_39
+    21300080: attack_40
+    21300082: attack_41
+    21300084: attack_42
+    21300086: attack_43
+    21300088: attack_44
+    21300090: attack_45
+    21300092: attack_46
+    21300094: attack_47
+    21300096: attack_48
+    21300098: attack_49
+    21300100: attack_50
+    21300102: attack_51
+    21300104: attack_52
+    21300106: attack_53
+    21300108: attack_54
+    21300110: attack_55
+    21300112: attack_56
+    21300114: attack_57
+    21300116: attack_58
+    21300118: attack_59
+    21300120: attack_60
+    21300122: attack_61
+    21300124: attack_62
+    21300126: attack_63
+    21300128: attack_64
+    21300130: attack_65
+    21300132: attack_66
+    21300134: attack_67
+    21300136: attack_68
+    21300138: attack_69
+    21300140: attack_70
+    21300142: attack_71
+    21300144: attack_72
+    21300146: attack_73
+    21300148: attack_74
+    21300150: attack_75
+    21300152: attack_76
+    21300154: attack_77
+    21300156: attack_78
+    21300158: attack_79
+    21300160: attack_80
+    21300162: attack_81
+    21300164: attack_82
+    21300166: attack_83
+    21300168: attack_84
+    21300170: attack_85
+    21300172: attack_86
+    21300174: attack_87
+    21300176: attack_88
+    21300178: attack_89
+    21300180: attack_90
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -100,7 +131,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 133
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -134,784 +165,982 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_0
+      name: attack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 78
-        width: 36
-        height: 39
+        y: 1512
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_1
+      name: attack_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 78
-        width: 36
-        height: 39
+        x: 157
+        y: 1512
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_2
+      name: attack_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 78
-        width: 36
-        height: 39
+        x: 314
+        y: 1512
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_3
+      name: attack_3
       rect:
         serializedVersion: 2
-        x: 108
-        y: 78
-        width: 36
-        height: 39
+        x: 471
+        y: 1512
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_4
+      name: attack_4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 78
-        width: 36
-        height: 39
+        x: 628
+        y: 1512
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_5
+      name: attack_5
       rect:
         serializedVersion: 2
-        x: 180
-        y: 78
-        width: 36
-        height: 39
+        x: 785
+        y: 1512
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_6
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_7
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_8
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_9
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_10
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_11
-      rect:
-        serializedVersion: 2
-        x: 396
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_12
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_13
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_14
-      rect:
-        serializedVersion: 2
-        x: 504
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_15
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_16
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_17
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_18
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_19
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 78
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_20
+      name: attack_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 39
-        width: 36
-        height: 39
+        y: 1386
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_21
+      name: attack_7
       rect:
         serializedVersion: 2
-        x: 36
-        y: 39
-        width: 36
-        height: 39
+        x: 157
+        y: 1386
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_22
+      name: attack_8
       rect:
         serializedVersion: 2
-        x: 72
-        y: 39
-        width: 36
-        height: 39
+        x: 314
+        y: 1386
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_23
+      name: attack_9
       rect:
         serializedVersion: 2
-        x: 108
-        y: 39
-        width: 36
-        height: 39
+        x: 471
+        y: 1386
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_24
+      name: attack_10
       rect:
         serializedVersion: 2
-        x: 144
-        y: 39
-        width: 36
-        height: 39
+        x: 628
+        y: 1386
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_25
+      name: attack_11
       rect:
         serializedVersion: 2
-        x: 180
-        y: 39
-        width: 36
-        height: 39
+        x: 785
+        y: 1386
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_26
+      name: attack_12
       rect:
         serializedVersion: 2
-        x: 216
-        y: 39
-        width: 36
-        height: 39
+        x: 0
+        y: 1260
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_27
+      name: attack_13
       rect:
         serializedVersion: 2
-        x: 252
-        y: 39
-        width: 36
-        height: 39
+        x: 157
+        y: 1260
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_28
+      name: attack_14
       rect:
         serializedVersion: 2
-        x: 288
-        y: 39
-        width: 36
-        height: 39
+        x: 314
+        y: 1260
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_29
+      name: attack_15
       rect:
         serializedVersion: 2
-        x: 324
-        y: 39
-        width: 36
-        height: 39
+        x: 471
+        y: 1260
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_30
+      name: attack_16
       rect:
         serializedVersion: 2
-        x: 360
-        y: 39
-        width: 36
-        height: 39
+        x: 628
+        y: 1260
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_31
+      name: attack_17
       rect:
         serializedVersion: 2
-        x: 396
-        y: 39
-        width: 36
-        height: 39
+        x: 785
+        y: 1260
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_32
+      name: attack_18
       rect:
         serializedVersion: 2
-        x: 432
-        y: 39
-        width: 36
-        height: 39
+        x: 0
+        y: 1134
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_33
+      name: attack_19
       rect:
         serializedVersion: 2
-        x: 468
-        y: 39
-        width: 36
-        height: 39
+        x: 157
+        y: 1134
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_34
+      name: attack_20
       rect:
         serializedVersion: 2
-        x: 504
-        y: 39
-        width: 36
-        height: 39
+        x: 314
+        y: 1134
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_35
+      name: attack_21
       rect:
         serializedVersion: 2
-        x: 540
-        y: 39
-        width: 36
-        height: 39
+        x: 471
+        y: 1134
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_36
+      name: attack_22
       rect:
         serializedVersion: 2
-        x: 576
-        y: 39
-        width: 36
-        height: 39
+        x: 628
+        y: 1134
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_37
+      name: attack_23
       rect:
         serializedVersion: 2
-        x: 612
-        y: 39
-        width: 36
-        height: 39
+        x: 785
+        y: 1134
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_38
+      name: attack_24
       rect:
         serializedVersion: 2
-        x: 648
-        y: 39
-        width: 36
-        height: 39
+        x: 0
+        y: 1008
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_39
+      name: attack_25
       rect:
         serializedVersion: 2
-        x: 684
-        y: 39
-        width: 36
-        height: 39
+        x: 157
+        y: 1008
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_40
+      name: attack_26
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1008
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_27
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 1008
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_28
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1008
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_29
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1008
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 882
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_31
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 882
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_32
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 882
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_33
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 882
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_34
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 882
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_35
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 882
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 756
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_37
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 756
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_38
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 756
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_39
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 756
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_40
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 756
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_41
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 756
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_43
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 630
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_44
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 630
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_45
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 630
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_46
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 630
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_47
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 630
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_49
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 504
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_50
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 504
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_51
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 504
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_52
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 504
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_53
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 504
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 378
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_55
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 378
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_56
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 378
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_57
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 378
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_58
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 378
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_59
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 378
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_61
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 252
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_62
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 252
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_63
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 252
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_64
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 252
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_65
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 252
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_67
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 126
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_68
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 126
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_69
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 126
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_70
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 126
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_71
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 126
+        width: 157
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: attack_72
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 39
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_41
+      name: attack_73
       rect:
         serializedVersion: 2
-        x: 36
+        x: 157
         y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_42
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_43
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_44
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_45
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_46
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_47
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_48
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_49
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_50
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_51
-      rect:
-        serializedVersion: 2
-        x: 396
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_52
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_53
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_54
-      rect:
-        serializedVersion: 2
-        x: 504
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_55
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_56
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_57
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_58
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 0
-        width: 36
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: npc_cubimal_batterfly__x1_race_png_1354836243_59
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 0
-        width: 36
-        height: 39
+        width: 157
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
