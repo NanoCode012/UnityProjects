@@ -15,10 +15,10 @@ public class OptionsController : MonoBehaviour {
     void Start()
     {
         musicPlayer = FindObjectOfType<MusicPlayer>();
-        CheckIfMissingPlayer(musicPlayer);
-
-        SetValuesByPrefs();
-
+        if (CheckIfMissingPlayer(musicPlayer))
+        {
+            SetValuesByPrefs();
+        }
     }
 
     void SetValuesByPrefs()
@@ -28,13 +28,14 @@ public class OptionsController : MonoBehaviour {
         musicPlayer.ChangeVolume(volumeSlider.value);
     }
 
-    void CheckIfMissingPlayer(MusicPlayer player)
+    bool CheckIfMissingPlayer(MusicPlayer player)
     {
         if (!player)
         {
             Debug.LogWarning("Error MusicPlayer not found. Specifically MusicPlayer.cs component is missing/gone. " +
                              "Did you start in the correct scene? Splash Scene? Debug : " + player);
         }
+        return (bool)(player);
     }
 
     public void SaveValues()
