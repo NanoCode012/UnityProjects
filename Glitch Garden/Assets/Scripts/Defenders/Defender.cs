@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defenders : MonoBehaviour
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Health))]
+public class Defender : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
