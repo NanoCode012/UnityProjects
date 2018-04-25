@@ -8,17 +8,13 @@ public class Fox : Attacker {
     {
         GameObject obj = collision.gameObject;
 
-        if (obj.CompareTag("Projectile"))
-        {
-            //lose hp
-        }
-        else if (obj.CompareTag("Block"))
+        if (obj.CompareTag("Block"))
         {
             //Jump
             print(name + " jumped over " + collision.name);
             Jump();
         }
-        else
+        else if (obj.CompareTag("Defender"))
         {
             AttackStart(obj);
         }

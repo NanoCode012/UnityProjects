@@ -22,6 +22,11 @@ public class Projectile : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-        print(name + " is touched by " + collision.name);
+        if (collision.CompareTag("Attacker"))
+        {
+            Health health = collision.gameObject.GetComponent<Health>();
+            health.DealDamage(damage);
+            Destroy(gameObject);
+        }
 	}
 }
