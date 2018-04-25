@@ -32,7 +32,7 @@ public abstract class Attacker : MonoBehaviour
         currentSpeed = speed;
     }
 
-    public void StrikeCurrentTarget(float damage)
+    private void StrikeCurrentTarget(float damage)
     {
         if (currentTarget != null)
         {     
