@@ -14,15 +14,13 @@ public class Shooter : MonoBehaviour {
         var myProjectile = Instantiate(projectile);
 
         projectileParent = GameObject.Find("Projectiles");
-        if (projectileParent)
+        if (projectileParent == null)
         {
-			myProjectile.transform.SetParent(projectileParent.transform);
-        }
-        else
-        {
-            Debug.LogWarning("Could not find 'Projectiles' GameObject");
+            projectileParent = new GameObject("Projectiles");
         }
 
+		myProjectile.transform.SetParent(projectileParent.transform);
         myProjectile.transform.position = projectileStartingPosition.transform.position;
     }
+
 }
