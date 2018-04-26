@@ -36,8 +36,6 @@ public abstract class Attacker : MonoBehaviour
     {
         if (currentTarget != null)
         {     
-			print(name + " dealt " + damage + " damage");
-
 			var currentTargetHPComponent = currentTarget.GetComponent<Health>();
             if (currentTargetHPComponent != null)
             {

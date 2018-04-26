@@ -10,8 +10,6 @@ public class Fox : Attacker {
 
         if (obj.CompareTag("Block"))
         {
-            //Jump
-            print(name + " jumped over " + collision.name);
             Jump();
         }
         else if (obj.CompareTag("Defender"))
