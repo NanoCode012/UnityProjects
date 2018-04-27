@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class SelectableButton : MonoBehaviour {
 
-    public static GameObject selectedButton = null;
+    public static SelectableButton selectedButton = null;
     public GameObject defenderPrefab;
 
     SpriteRenderer spriteRenderer;
-    //bool isPressed = false;
 
 	private void Start()
 	{
@@ -16,24 +15,41 @@ public class SelectableButton : MonoBehaviour {
         spriteRenderer.color = Color.black;
 	}
 
-	private void OnMouseEnter()
-	{
-        spriteRenderer.color = Color.white;
+    private void OnMouseDown()
+    {
+        if (selectedButton == null)
+        {
+            SetActive(true);
+        }
+        else if (selectedButton == this)
+        {
+            SetActive(false);
+        }
+        else
+        {
+            selectedButton.SetActive(false);
+            SetActive(true);
+        }
 	}
 
-	private void OnMouseDown()
-	{
-        selectedButton = defenderPrefab;
-	}
+    public void SetActive(bool isActive)
+    {
+        if (isActive)
+        {
+            spriteRenderer.color = Color.white;
+            selectedButton = this;
+        }
+        else
+        {
+            spriteRenderer.color = Color.black;
+            selectedButton = null;
+        }
+    }
 
-	private void OnMouseExit()
-	{
-        spriteRenderer.color = Color.black;
-        selectedButton = null;
-	}
+    public GameObject GetDefender()
+    {
+        SetActive(false);
+        return defenderPrefab;
+    }
 
-	private void OnMouseUp()
-	{
-        selectedButton = null;
-	}
 }
