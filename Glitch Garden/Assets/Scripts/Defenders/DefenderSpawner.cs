@@ -24,7 +24,7 @@ public class DefenderSpawner : MonoBehaviour {
             GameObject defenderPrefab = SelectableButton.selectedButton.GetDefender();
             Vector2 position = SnapToGrid(CalculateMousePositionInWorldUnit());
             GameObject defender = Instantiate(defenderPrefab, position, Quaternion.identity);
-			defender.transform.parent = defenderParent.transform;
+            defender.transform.SetParent(defenderParent.transform);
         }
 	}
 

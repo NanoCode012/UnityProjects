@@ -20,8 +20,8 @@ public abstract class Attacker : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        myRigidbody2D = gameObject.AddComponent<Rigidbody2D>();
-        myRigidbody2D.isKinematic = true;
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidbody2D.isKinematic = true;//Added as defense in case I forget to set to Kinematic
 
         animator = GetComponent<Animator>();
     }
