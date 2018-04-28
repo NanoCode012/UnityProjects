@@ -7,7 +7,7 @@ public class SelectableButton : MonoBehaviour {
     public static SelectableButton selectedButton = null;
     public GameObject defenderPrefab;
 
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
 	private void Start()
 	{

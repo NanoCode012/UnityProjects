@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour {
 
     public float speed;
     public float damage;
-    Rigidbody2D myRigidbody2D;
+
+    private Rigidbody2D myRigidbody2D;
 
     private void Start()
     {

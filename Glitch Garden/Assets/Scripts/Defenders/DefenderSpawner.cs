@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour {
     
-    Camera mainCamera;
-    GameObject defenderParent;
+    private Camera mainCamera;
+    private GameObject defenderParent;
 
 	private void Start()
 	{
