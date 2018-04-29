@@ -5,16 +5,22 @@ using UnityEngine;
 public class DefenderSpawner : MonoBehaviour {
     
     private Camera mainCamera;
+
     private GameObject defenderParent;
+
+    private StarDisplay starDisplay;
 
 	private void Start()
 	{
         mainCamera = Camera.main;
+
         defenderParent = GameObject.Find("Defenders");
         if (defenderParent == null)
         {
             defenderParent = new GameObject("Defenders");
         }
+
+        starDisplay = FindObjectOfType<StarDisplay>();
 	}
 
 	private void OnMouseDown()
@@ -22,16 +28,29 @@ public class DefenderSpawner : MonoBehaviour {
         if (SelectableButton.selectedButton != null)
         {
             GameObject defenderPrefab = SelectableButton.selectedButton.GetDefender();
-            Vector2 position = SnapToGrid(CalculateMousePositionInWorldUnit());
-            GameObject defender = Instantiate(defenderPrefab, position, Quaternion.identity);
-            defender.transform.SetParent(defenderParent.transform);
+            int defenderCost = defenderPrefab.GetComponent<Defender>().starCost;
+
+            if (starDisplay.UseStar(defenderCost) == Status.SUCCESS)
+            {
+                SpawnDefender(defenderPrefab);
+            }
+            else
+            {
+                Debug.Log("Insufficient stars");
+            }
         }
 	}
 
+    private void SpawnDefender(GameObject defenderPrefab)
+    {
+        Vector2 position = SnapToGrid(CalculateMousePositionInWorldUnit());
+        GameObject defender = Instantiate(defenderPrefab, position, Quaternion.identity);
+        defender.transform.SetParent(defenderParent.transform);
+    }
+
     private Vector2 CalculateMousePositionInWorldUnit()
     {
-        Vector2 mousePressed = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        return mousePressed;
+        return mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private Vector2 SnapToGrid(Vector2 rawWorldPosition)
