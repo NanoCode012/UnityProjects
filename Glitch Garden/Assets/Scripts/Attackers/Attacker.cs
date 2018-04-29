@@ -69,5 +69,10 @@ public abstract class Attacker : MonoBehaviour
         animator.SetBool("isAttacking", false);
     }
 
+    protected bool CheckIfAttackerIsBehindDefender(GameObject obj)
+    {
+        return (transform.position.x <= obj.transform.position.x);
+    }
+
     public abstract void OnTriggerEnter2D(Collider2D collision);
 }

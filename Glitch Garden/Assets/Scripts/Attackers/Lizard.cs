@@ -8,6 +8,8 @@ public class Lizard : Attacker {
 	{
         GameObject obj = collision.gameObject;
 
+        if (CheckIfAttackerIsBehindDefender(obj)) return;
+
         if (obj.CompareTag("Defender") || obj.CompareTag("Block"))
         {
             AttackStart(obj);

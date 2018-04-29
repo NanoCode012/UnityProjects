@@ -8,6 +8,8 @@ public class Fox : Attacker {
     {
         GameObject obj = collision.gameObject;
 
+        if (CheckIfAttackerIsBehindDefender(obj)) return;
+
         if (obj.CompareTag("Block"))
         {
             Jump();
