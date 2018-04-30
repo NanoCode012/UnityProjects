@@ -37,7 +37,12 @@ public class LevelManager : MonoBehaviour {
 
     public void Lose()
     {
-        LoadLevel("6_Lose");
+        LoadLevel("7_Lose");
+    }
+
+    public void Win()
+    {
+        LoadLevel("6_Win");
     }
 
 	public void QuitLevel() {
