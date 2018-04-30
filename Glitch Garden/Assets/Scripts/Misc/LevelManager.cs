@@ -35,6 +35,11 @@ public class LevelManager : MonoBehaviour {
         return SceneManager.GetActiveScene().buildIndex;
     }
 
+    public void Lose()
+    {
+        LoadLevel("6_Lose");
+    }
+
 	public void QuitLevel() {
 		print("Quit level initiated");
 		Application.Quit();
