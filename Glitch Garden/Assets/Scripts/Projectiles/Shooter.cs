@@ -9,9 +9,11 @@ public class Shooter : MonoBehaviour {
     public GameObject projectile;
     public GameObject projectileStartingPosition;
 
-    private Animator animator;
 	private GameObject projectileParent;
-    private AttackerSpawner myLaneSpawner = null;
+
+	private Animator animator;
+
+    private Transform myLaneSpawnerTransform = null;
 
     private void Start()
     {
@@ -40,26 +42,25 @@ public class Shooter : MonoBehaviour {
 
     private void SetMyLaneSpawner()
     {
-        AttackerSpawner[] spawners = FindObjectsOfType<AttackerSpawner>();
-        foreach(AttackerSpawner spawner in spawners)
+        Transform spawners = FindObjectOfType<AttackerSpawner>().GetComponent<Transform>();
+        foreach(Transform childSpawner in spawners)
         {
-            if (Math.Abs(spawner.gameObject.transform.position.y - transform.position.y) < 0.1)
+            if (Math.Abs(childSpawner.position.y - transform.position.y) < 0.1)
             {
-                myLaneSpawner = spawner;
+                myLaneSpawnerTransform = childSpawner;
                 break;
             }
         }
 
-        if (myLaneSpawner == null) Debug.LogError(name + "'s lane spawner cannot be found");
+        if (myLaneSpawnerTransform == null) Debug.LogError(name + "'s lane spawner cannot be found");
     }
 
     private bool HasAttackerInFront()
     {
-        int amountOfAttackers = myLaneSpawner.gameObject.transform.childCount;
+        int amountOfAttackers = myLaneSpawnerTransform.childCount;
         if (amountOfAttackers <= 0) return false;
 
 		float currentDefenderXPosition = transform.position.x;
-        Transform myLaneSpawnerTransform = myLaneSpawner.transform;
         foreach(Transform attacker in myLaneSpawnerTransform)
         {
             if (attacker.position.x <= 11 && attacker.position.x >= currentDefenderXPosition)

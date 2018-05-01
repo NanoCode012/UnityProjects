@@ -7,15 +7,10 @@ using UnityEngine;
 [RequireComponent (typeof (Health))]
 public abstract class Attacker : MonoBehaviour
 {
-
-    [Tooltip("Duration between appearances")]
-    public float timeToSpawn;
-
     private float currentSpeed;
     private GameObject currentTarget;
     private Animator animator;
     private Rigidbody2D myRigidbody2D;
-
 
     // Use this for initialization
     void Start()
