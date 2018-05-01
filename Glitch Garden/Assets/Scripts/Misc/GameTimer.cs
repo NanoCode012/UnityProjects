@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent (typeof(Slider))]
 public class GameTimer : MonoBehaviour {
 
-    public int levelDurationInSeconds;
+    public int levelDurationInSeconds = 100;
 
     public AudioClip winFX;
 
@@ -46,6 +46,7 @@ public class GameTimer : MonoBehaviour {
         SoundEffects.PlayFX(winFX);
         winStatement.SetActive(true);
         yield return new WaitForSeconds(seconds);
+        PlayerPrefsManager.UnlockCurrentLevel();
         levelManager.LoadNextLevel();
     }
 }

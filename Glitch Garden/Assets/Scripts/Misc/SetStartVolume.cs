@@ -9,14 +9,9 @@ public class SetStartVolume : MonoBehaviour {
 	void Start () 
     {
         musicPlayer = FindObjectOfType<MusicPlayer>();
-        if (!(musicPlayer))
+        if (OptionsController.CheckIfMissingPlayer(musicPlayer))
         {
-            Debug.LogWarning("Error MusicPlayer not found. Specifically MusicPlayer.cs component is missing/gone. " +
-                             "Did you start in the correct scene? Splash Scene? Debug : " + musicPlayer);
-        }
-        else
-        {         
-			musicPlayer.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
+            musicPlayer.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
         }
     }
 }

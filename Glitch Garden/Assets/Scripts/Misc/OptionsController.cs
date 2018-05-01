@@ -12,27 +12,28 @@ public class OptionsController : MonoBehaviour {
 
     int timesToActivate = 10;
 
-    void Start()
+    private void Start()
     {
         musicPlayer = FindObjectOfType<MusicPlayer>();
         if (CheckIfMissingPlayer(musicPlayer))
         {
-            SetValuesByPrefs();
+            UpdateValuesByPrefs();
         }
     }
 
-    void SetValuesByPrefs()
+    private void UpdateValuesByPrefs()
     {
         volumeSlider.value = PlayerPrefsManager.GetMasterVolume();
-        difficultySlider.value = PlayerPrefsManager.GetDifficulty();
         musicPlayer.ChangeVolume(volumeSlider.value);
+
+		difficultySlider.value = PlayerPrefsManager.GetDifficulty();
     }
 
-    bool CheckIfMissingPlayer(MusicPlayer player)
+    public static bool CheckIfMissingPlayer(MusicPlayer player)
     {
         if (!player)
         {
-            Debug.LogWarning("Error MusicPlayer not found. Specifically MusicPlayer.cs component is missing/gone. " +
+            Debug.LogWarning("MusicPlayer not found. Specifically MusicPlayer.cs component is missing/gone. " +
                              "Did you start in the correct scene? Splash Scene? Debug : " + player);
         }
         return (bool)(player);
@@ -50,7 +51,7 @@ public class OptionsController : MonoBehaviour {
     public void ResetValues()
     {
         PlayerPrefsManager.SetDefault();
-        SetValuesByPrefs();
+        UpdateValuesByPrefs();
     }
 
     public void ActivateGod()

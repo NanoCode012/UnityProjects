@@ -24,13 +24,19 @@ public class PlayerPrefsManager : MonoBehaviour {
     }
 
     //Level control
+
+    public static void UnlockCurrentLevel()
+    {
+        int level = SceneManager.GetActiveScene().buildIndex;
+        UnlockLevel(level);
+    }
      
-    public static void UnlockLevel(int level){
+    public static void UnlockLevel(int level, bool unlock = true){
         if (level <= SceneManager.sceneCountInBuildSettings - 1) {
-            PlayerPrefs.SetInt(LEVEL_KEY + level, 1);//1 true, 0 false
+            PlayerPrefs.SetInt(LEVEL_KEY + level, (unlock) ? 1 : 0);//1 true, 0 false
         }
         else {
-            Debug.LogError("Cannot unlockLevel higher than count of scenes. Only within 0->sceneCount - 1. You input " + level);
+            Debug.LogError("Cannot UnlockLevel higher than count of scenes. Only within 0->sceneCount - 1. You input " + level);
         }
     }
 
@@ -62,5 +68,10 @@ public class PlayerPrefsManager : MonoBehaviour {
     public static void SetDefault(){
         SetMasterVolume(0.36f);
         SetDifficulty(1);
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            UnlockLevel(i, false);
+        }
     }
 }
