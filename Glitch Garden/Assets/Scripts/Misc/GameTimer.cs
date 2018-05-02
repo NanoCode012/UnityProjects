@@ -15,6 +15,8 @@ public class GameTimer : MonoBehaviour {
     private Slider slider;
     private LevelManager levelManager;
 
+    private MusicPlayer musicPlayer;
+
 	private bool isEndLevel = false;
 
 	// Use this for initialization
@@ -26,13 +28,16 @@ public class GameTimer : MonoBehaviour {
         slider.maxValue = levelDurationInSeconds;
 
         levelManager = FindObjectOfType<LevelManager>();
+
+        musicPlayer = FindObjectOfType<MusicPlayer>();
+        OptionsController.CheckIfMissingPlayer(musicPlayer);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (!isEndLevel)
         {
-            slider.value = Time.timeSinceLevelLoad;
+            slider.value += Time.deltaTime;
             if (slider.value >= levelDurationInSeconds)
 			{
                 StartCoroutine(WaitSecondsAndLoadNextLevel(winFX.length));
@@ -43,9 +48,14 @@ public class GameTimer : MonoBehaviour {
 
     IEnumerator WaitSecondsAndLoadNextLevel(float seconds)
     {
-        SoundEffects.PlayFX(winFX);
+        float bufferTimeBeforeResumingMusic = 3f;
+
+        musicPlayer.PlayFX(winFX, bufferTimeBeforeResumingMusic);
+
         winStatement.SetActive(true);
-        yield return new WaitForSeconds(seconds);
+
+        yield return new WaitForSeconds(seconds + bufferTimeBeforeResumingMusic);
+
         PlayerPrefsManager.UnlockCurrentLevel();
         levelManager.LoadNextLevel();
     }

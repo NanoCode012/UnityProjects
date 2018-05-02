@@ -61,9 +61,10 @@ public class Shooter : MonoBehaviour {
         if (amountOfAttackers <= 0) return false;
 
 		float currentDefenderXPosition = transform.position.x;
+        float edgeXPosition = 9.5f;
         foreach(Transform attacker in myLaneSpawnerTransform)
         {
-            if (attacker.position.x <= 11 && attacker.position.x >= currentDefenderXPosition)
+            if (attacker.position.x <= edgeXPosition && attacker.position.x >= currentDefenderXPosition)
             {
                 return true;
             }
