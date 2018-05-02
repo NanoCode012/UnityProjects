@@ -23,6 +23,6 @@ public class Block : MonoBehaviour {
 
     private void Shake()
     {
-        animator.SetTrigger("isAttacked Trigger");
+        animator.SetTrigger("isAttackedTrigger");
 	}
 }
