@@ -5,9 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPrefsManager : MonoBehaviour {
 
+    const string HAS_RAN_ONCE_KEY = "has_ran_once";
     const string MASTER_VOLUME_KEY = "master_volume";
     const string DIFFICULTY_KEY = "difficulty";
     const string LEVEL_KEY = "level_unlocked_";
+
+    //Startup control
+    private static void SetRanOnce()
+    {
+        PlayerPrefs.SetInt(HAS_RAN_ONCE_KEY, 1);
+        SetDefault();
+    }
+
+    private static bool GetIfRanOnce()
+    {
+        return (PlayerPrefs.GetInt(HAS_RAN_ONCE_KEY) == 1);
+    }
 	
     //Volume control
 
@@ -20,6 +33,8 @@ public class PlayerPrefsManager : MonoBehaviour {
     }
 
     public static float GetMasterVolume(){
+        if (!GetIfRanOnce()) SetRanOnce();
+
         return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
     }
 
