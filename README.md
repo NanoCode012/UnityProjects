@@ -19,9 +19,11 @@ Udemy
 
 + [Glitch Garden](https://github.com/NanoCode012/UnityProjects/tree/master/Glitch%20Garden) : A Plants VS Zombie clone.
 
++ [Bowl Master](https://github.com/NanoCode012/UnityProjects/tree/master/Bowl%20Master) : A bowling game.
+
 Original
 --------
 
 + [Physic Simulator](https://github.com/NanoCode012/UnityProjects/tree/master/Physic%20Simulator) : An app which simulates physic concept in real life, to allow highschool students to visualize particles being shot and kinematics.
 
-Last Updated : 18/Oct/2017
+Last Updated : 7/May/2018
