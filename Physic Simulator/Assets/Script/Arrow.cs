@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Angle : MonoBehaviour {
+public class Arrow : MonoBehaviour {
     
     RectTransform rectTransform;
     // Use this for initialization
