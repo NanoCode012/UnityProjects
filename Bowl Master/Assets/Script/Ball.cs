@@ -8,10 +8,13 @@ public class Ball : MonoBehaviour {
 
     public AudioClip rollingClip;
 
+    public bool IsLaunched { get; private set; }
+
     private Rigidbody myRigidBody;
     private AudioSource audioSource;
 
 	void Start () {
+        IsLaunched = false;
 
         myRigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
@@ -26,8 +29,23 @@ public class Ball : MonoBehaviour {
         }
     }
 
+    public void Translate(Vector3 displacement)
+    {
+        myRigidBody.position += displacement;
+        if (myRigidBody.position.x < -50)
+        {
+            myRigidBody.position = new Vector3(-50, myRigidBody.position.y, myRigidBody.position.z);
+        }
+        else if (myRigidBody.position.x > 50)
+        {
+            myRigidBody.position = new Vector3(50, myRigidBody.position.y, myRigidBody.position.z);
+        }
+    }
+
     public void Launch(Vector3 velocity)
     {
+        IsLaunched = true;
+
         myRigidBody.velocity = velocity;
         myRigidBody.useGravity = true;
 
