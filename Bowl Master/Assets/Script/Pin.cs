@@ -19,9 +19,11 @@ public class Pin : MonoBehaviour {
             && ((currentZRotation <= standingThresholdAngle) || (360 - standingThresholdAngle <= currentZRotation && currentZRotation <= 360 + standingThresholdAngle)));
     }
 
-    //private void Update()
-    //{
-    //    print(name + " " + ((IsStanding()) ? "true" : (transform.eulerAngles.x.ToString() + " " + transform.eulerAngles.z.ToString())));
-    //    //print(name + transform.eulerAngles.z);
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<PinSetter>())
+        {
+            Destroy(gameObject);
+        }
+    }
 }
