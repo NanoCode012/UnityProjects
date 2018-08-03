@@ -13,6 +13,8 @@ public class Ball : MonoBehaviour {
     private Rigidbody myRigidBody;
     private AudioSource audioSource;
 
+    private Vector3 startPos;
+
 	void Start () {
         IsLaunched = false;
 
@@ -27,6 +29,8 @@ public class Ball : MonoBehaviour {
             audioSource.clip = rollingClip;
             audioSource.loop = true;
         }
+
+        startPos = myRigidBody.position;
     }
 
     public void Translate(Vector3 displacement)
@@ -50,5 +54,17 @@ public class Ball : MonoBehaviour {
         myRigidBody.useGravity = true;
 
         audioSource.Play();
+    }
+
+    public void Reset()
+    {
+        myRigidBody.position = startPos;
+        
+        myRigidBody.velocity = Vector3.zero;
+        myRigidBody.angularVelocity = Vector3.zero;
+        myRigidBody.useGravity = false;
+
+        audioSource.Stop();
+        IsLaunched = false;
     }
 }
