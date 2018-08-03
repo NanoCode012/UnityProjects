@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class PinSetter : MonoBehaviour {
 
-    public Text standingPinText;
+    public Text StandingPinText;
 
     [SerializeField] private int lastStandingCount = -1;
+    private float distToRaiseBy = 60f;
 
     private Pin[] pins;
     private Ball ball;
@@ -25,7 +26,7 @@ public class PinSetter : MonoBehaviour {
 
     void SetTextDisplay(int count)
     {
-        standingPinText.text = count.ToString();
+        StandingPinText.text = count.ToString();
     }
 
     private void Update()
@@ -58,7 +59,7 @@ public class PinSetter : MonoBehaviour {
         ballEnteredBox = false;
         lastStandingCount = -1;
 
-        standingPinText.color = new Color(0, 1, 0);
+        StandingPinText.color = new Color(0, 1, 0);
 
         ball.Reset();
     }
@@ -68,7 +69,7 @@ public class PinSetter : MonoBehaviour {
         if (other.GetComponent<Ball>())
         {
             ballEnteredBox = true;
-            standingPinText.color = new Color(1, 0, 0);
+            StandingPinText.color = new Color(1, 0, 0);
         }
     }
 
@@ -84,5 +85,40 @@ public class PinSetter : MonoBehaviour {
         }
 
         return pinStanding;
+    }
+
+    public void RaisePins()
+    {
+        foreach(var pin in pins)
+        {
+            if (pin)
+            {
+                pin.GetComponent<Rigidbody>().transform.Translate(new Vector3(0, distToRaiseBy, 0));
+                pin.GetComponent<Rigidbody>().useGravity = false;
+            }
+        }
+    }
+
+    public void LowerPins()
+    {
+        foreach (var pin in pins)
+        {
+            if (pin)
+            {
+                pin.GetComponent<Rigidbody>().transform.Translate(new Vector3(0, -distToRaiseBy, 0));
+                pin.GetComponent<Rigidbody>().useGravity = true;
+            }
+        }
+    }
+
+    public void RenewPins()
+    {
+        foreach(var pin in pins)
+        {
+            if (!pin)
+            {
+                
+            }
+        }
     }
 }
