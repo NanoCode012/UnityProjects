@@ -8,13 +8,12 @@ public class PinSetter : MonoBehaviour {
     public Text StandingPinText;
 
     [SerializeField] private int lastStandingCount = -1;
-    private float distToRaiseBy = 60f;
 
     private Pin[] pins;
     private Ball ball;
 
     private float timeSinceLastChange;
-    private float timeToWait = 3;
+    private readonly float timeToWait = 3;
 
     private bool ballEnteredBox = false;
 
@@ -93,8 +92,7 @@ public class PinSetter : MonoBehaviour {
         {
             if (pin)
             {
-                pin.GetComponent<Rigidbody>().transform.Translate(new Vector3(0, distToRaiseBy, 0));
-                pin.GetComponent<Rigidbody>().useGravity = false;
+                pin.Raise();
             }
         }
     }
@@ -105,8 +103,7 @@ public class PinSetter : MonoBehaviour {
         {
             if (pin)
             {
-                pin.GetComponent<Rigidbody>().transform.Translate(new Vector3(0, -distToRaiseBy, 0));
-                pin.GetComponent<Rigidbody>().useGravity = true;
+                pin.Lower();
             }
         }
     }
