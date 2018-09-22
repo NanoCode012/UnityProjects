@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PinSetter : MonoBehaviour {
 
     public Text StandingPinText;
+    public GameObject PinSet;
 
     [SerializeField] private int lastStandingCount = -1;
 
@@ -110,12 +111,6 @@ public class PinSetter : MonoBehaviour {
 
     public void RenewPins()
     {
-        foreach(var pin in pins)
-        {
-            if (!pin)
-            {
-                
-            }
-        }
+        Instantiate(PinSet);
     }
 }
