@@ -64,6 +64,17 @@ public class PinSetter : MonoBehaviour {
         ball.Reset();
     }
 
+    private void PinResetOrientation()
+    {
+        foreach (var pin in pins)
+        {
+            if (pin)
+            {
+                pin.Reset();
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Ball>())
@@ -76,6 +87,8 @@ public class PinSetter : MonoBehaviour {
     int CountStanding()
     {
         int pinStanding = 0;
+
+        pins = FindObjectsOfType<Pin>();
         foreach (var pin in pins)
         {
             if (pin)
@@ -89,7 +102,8 @@ public class PinSetter : MonoBehaviour {
 
     public void RaisePins()
     {
-        foreach(var pin in pins)
+        PinResetOrientation();
+        foreach (var pin in pins)
         {
             if (pin)
             {

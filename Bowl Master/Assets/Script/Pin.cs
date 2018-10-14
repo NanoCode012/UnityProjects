@@ -17,6 +17,7 @@ public class Pin : MonoBehaviour {
     private void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
+        myRigidBody.solverIterations = 7;
         myRigidBody.solverVelocityIterations = 7;
     }
 
@@ -42,6 +43,14 @@ public class Pin : MonoBehaviour {
     {
         myRigidBody.transform.Translate(Vector3.down * distToRaiseBy);
         myRigidBody.useGravity = true;
+    }
+
+    public void Reset()
+    {
+        myRigidBody.velocity = Vector3.zero;
+        myRigidBody.angularVelocity = Vector3.zero;
+
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 
     private void OnTriggerExit(Collider other)
