@@ -52,12 +52,4 @@ public class Pin : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<PinSetter>())
-        {
-            Destroy(gameObject);
-        }
-    }
 }

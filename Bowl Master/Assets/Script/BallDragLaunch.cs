@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Ball))]
-public class DragLaunch : MonoBehaviour {
+public class BallDragLaunch : MonoBehaviour {
 
     private Ball ball;
 

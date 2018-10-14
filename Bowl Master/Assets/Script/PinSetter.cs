@@ -33,11 +33,11 @@ public class PinSetter : MonoBehaviour {
     {
         if (ballEnteredBox)
         {
-            CheckStanding();
+            UpdateStandingCountAndSettle();
         }
     }
 
-    void CheckStanding()
+    void UpdateStandingCountAndSettle()
     {
         int standing = CountStanding();
         SetTextDisplay(standing);
