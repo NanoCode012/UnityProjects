@@ -6,8 +6,10 @@ using UnityEngine;
 [TestFixture]
 public class ActionMasterTest
 {
-    private readonly ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
     private readonly ActionMaster.Action tidy = ActionMaster.Action.Tidy;
+    private readonly ActionMaster.Action reset = ActionMaster.Action.Reset;
+    private readonly ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
+    private readonly ActionMaster.Action endGame = ActionMaster.Action.EndGame;
 
     private ActionMaster actionMaster;
 
@@ -49,5 +51,45 @@ public class ActionMasterTest
     {
         actionMaster.Bowl(2);
         Assert.AreEqual(endTurn, actionMaster.Bowl(8));
+    }
+    
+    [Test]
+    public void T05Bowl_BowlTillOneToLastFrame_EndGame()
+    {
+        for(int i = 0; i < 19; i++)
+        {
+            actionMaster.Bowl(2);
+        }
+        Assert.AreEqual(endGame, actionMaster.Bowl(2));
+    }
+
+    [Test]
+    public void T06Bowl_BowlTillOneToLastFrameAndGetSpare_Reset()
+    {
+        for (int i = 0; i < 19; i++)
+        {
+            actionMaster.Bowl(8);
+        }
+        Assert.AreEqual(reset, actionMaster.Bowl(2));
+    }
+
+    [Test]
+    public void T07Bowl_BowlTillTwoToLastFrameAndGetStrike_Reset()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            actionMaster.Bowl(8);
+        }
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+    }
+
+    [Test]
+    public void T08Bowl_BowlTillOneToLastFrameAndGetStrike_Reset()
+    {
+        for (int i = 0; i < 19; i++)
+        {
+            actionMaster.Bowl(8);
+        }
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
     }
 }
