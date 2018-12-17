@@ -51,13 +51,15 @@ public class ActionMaster
         }
         else
         {
-            bowlNumber++;
-
             //Mid frame
-            if (bowlNumber % 2 != 0) retAction = Action.Tidy;
+            if (bowlNumber % 2 == 0)
+            {
+                bowlNumber++;
+                retAction = Action.Tidy;
+            }
             else //End frame
             {
-                if (bowlNumber == 19 + 1)//19th frame + 1 from earlier
+                if (bowlNumber == 19)//19th frame
                 {
                     //Case: Strike on two to last frame then normal bowl for 2 times
                     if (bowls[18] == 10) retAction = Action.Tidy;
@@ -68,15 +70,14 @@ public class ActionMaster
                 }
                 else
                 {
-                    if (bowls[bowlNumber - 2] + pins > 10) throw new UnityException("Mid frame and end frame pins' count exceed 10");
+                    if (bowls[bowlNumber - 1] + pins > 10) throw new UnityException("Mid frame and end frame pins' count exceed 10");
 
                     retAction = Action.EndTurn;
                 }
+                bowlNumber++;
             }
         }
 
         return retAction;
     }
-
-    public int[] GetBowls() { return bowls; }
 }
