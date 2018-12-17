@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UnityEngine;
 
 [TestFixture]
@@ -39,7 +37,7 @@ public class ActionMasterTest
         {
             actionMaster.Bowl(15);
         }
-        catch(UnityException)
+        catch (UnityException)
         {
             Assert.Pass();
         }
@@ -52,11 +50,11 @@ public class ActionMasterTest
         actionMaster.Bowl(2);
         Assert.AreEqual(endTurn, actionMaster.Bowl(8));
     }
-    
+
     [Test]
-    public void T05Bowl_BowlTillOneToLastFrame_EndGame()
+    public void T05Bowl_BowlTillOneToLastFrameButNoSpareOrStrike_EndGame()
     {
-        for(int i = 0; i < 19; i++)
+        for (int i = 0; i < 19; i++)
         {
             actionMaster.Bowl(2);
         }
@@ -68,9 +66,9 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 19; i++)
         {
-            actionMaster.Bowl(8);
+            actionMaster.Bowl(2);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(2));
+        Assert.AreEqual(reset, actionMaster.Bowl(8));
     }
 
     [Test]
@@ -78,7 +76,7 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 18; i++)
         {
-            actionMaster.Bowl(8);
+            actionMaster.Bowl(2);
         }
         Assert.AreEqual(reset, actionMaster.Bowl(10));
     }
@@ -88,8 +86,65 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 19; i++)
         {
-            actionMaster.Bowl(8);
+            actionMaster.Bowl(2);
         }
         Assert.AreEqual(reset, actionMaster.Bowl(10));
+    }
+
+    [Test]
+    public void T09Bowl_BowlTillTwoToLastFrameGetStrikeThenGetSpareOrNormalBowl_ResetTidyEndGame()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            actionMaster.Bowl(2);
+        }
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(tidy, actionMaster.Bowl(8));
+        Assert.AreEqual(endGame, actionMaster.Bowl(2));
+    }
+
+    [Test]
+    public void T10Bowl_Bowl10OnSecondGetSpare_EndTurn()
+    {
+        actionMaster.Bowl(0);
+        Assert.AreEqual(endTurn, actionMaster.Bowl(10));
+    }
+
+    [Test]
+    public void T11Bowl_BowlMoreThan10ForSumOfTwoFrames_Error()
+    {
+        actionMaster.Bowl(8);
+        try
+        {
+            actionMaster.Bowl(8);
+        }
+        catch (UnityException)
+        {
+            Assert.Pass();
+        }
+        Assert.Fail("Test should error, but did not happen");
+    }
+
+    [Test]
+    public void T12Bowl_Bowl22_Error()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            actionMaster.Bowl(2);
+        }
+
+        actionMaster.Bowl(10);
+        actionMaster.Bowl(10);
+        actionMaster.Bowl(10);
+
+        try
+        {
+            actionMaster.Bowl(2);
+        }
+        catch (UnityException)
+        {
+            Assert.Pass();
+        }
+        Assert.Fail("Test should error, but did not happen");
     }
 }
