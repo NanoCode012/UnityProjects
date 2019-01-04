@@ -126,7 +126,7 @@ public class ActionMasterTest
     }
 
     [Test]
-    public void T12Bowl_Bowl22_Error()
+    public void T12Bowl_Bowl22Times_Error()
     {
         for (int i = 0; i < 18; i++)
         {
@@ -146,5 +146,17 @@ public class ActionMasterTest
             Assert.Pass();
         }
         Assert.Fail("Test should error, but did not happen");
+    }
+
+    [Test]
+    public void T13Bowl_BowlTillTwoToLastFrameGetStrikeThenStrikeThenStrike_ResetResetEndGame()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            actionMaster.Bowl(2);
+        }
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(endGame, actionMaster.Bowl(10));
     }
 }
