@@ -9,9 +9,12 @@ public class PinSetter : MonoBehaviour {
     public GameObject PinSet;
 
     [SerializeField] private int lastStandingCount = -1;
+    [SerializeField] private int currentStandingCount = 10;
 
     private Pin[] pins;
     private Ball ball;
+    private ActionMaster actionMaster;
+    private Animator animator;
 
     private float timeSinceLastChange;
     private readonly float timeToWait = 3;
@@ -22,6 +25,10 @@ public class PinSetter : MonoBehaviour {
     void Start () {
         pins = FindObjectsOfType<Pin>();
         ball = FindObjectOfType<Ball>();
+
+        actionMaster = new ActionMaster();
+
+        animator = GetComponent<Animator>();
 	}
 
     void SetTextDisplay(int count)
@@ -57,6 +64,12 @@ public class PinSetter : MonoBehaviour {
     void PinsHaveSettled()
     {
         ballEnteredBox = false;
+
+        int numberOfPinsFallen = currentStandingCount - lastStandingCount;
+        currentStandingCount = lastStandingCount;
+
+        ActUponPinsFallen(numberOfPinsFallen);
+
         lastStandingCount = -1;
 
         StandingPinText.color = new Color(0, 1, 0);
@@ -64,11 +77,29 @@ public class PinSetter : MonoBehaviour {
         ball.Reset();
     }
 
+    private void ActUponPinsFallen(int numberOfPinsFallen)
+    {
+        ActionMaster.Action action = actionMaster.Bowl(numberOfPinsFallen);
+        switch (action)
+        {
+            case ActionMaster.Action.Tidy:
+                animator.SetTrigger("Tidy Trigger");
+                break;
+            case ActionMaster.Action.Reset:
+            case ActionMaster.Action.EndTurn:
+                animator.SetTrigger("Reset Trigger");
+                break;
+            default:
+                throw new UnityException("Cannot handle other cases yet");
+                break;
+        }
+    }
+
     private void PinResetOrientation()
     {
         foreach (var pin in pins)
         {
-            if (pin)
+            if (pin && pin.IsStanding())
             {
                 pin.Reset();
             }
@@ -91,9 +122,9 @@ public class PinSetter : MonoBehaviour {
         pins = FindObjectsOfType<Pin>();
         foreach (var pin in pins)
         {
-            if (pin)
+            if (pin && pin.IsStanding())
             {
-                if (pin.IsStanding()) pinStanding++;
+                pinStanding++;
             }
         }
 
@@ -101,7 +132,7 @@ public class PinSetter : MonoBehaviour {
     }
 
     public void RaisePins()
-    {
+    { 
         PinResetOrientation();
         foreach (var pin in pins)
         {
@@ -126,5 +157,8 @@ public class PinSetter : MonoBehaviour {
     public void RenewPins()
     {
         Instantiate(PinSet);
+
+        currentStandingCount = 10;
+        SetTextDisplay(currentStandingCount);
     }
 }

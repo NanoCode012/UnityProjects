@@ -24,60 +24,53 @@ public class ActionMaster
 
         bowls[bowlNumber] = pins;
 
-        Action retAction = Action.Null;//Set to  NULL. Will return this action
-
-        if (bowlNumber >= 20)
+        if (bowlNumber == 20)
         {
             bowlNumber++;
-            retAction = Action.EndGame;
+            return Action.EndGame;
         }
-        else if (pins == 10)
+
+        if (pins == 10)
         {
             //Case: Reach till one/two to last frame and got strike
             if (bowlNumber == 18 || bowlNumber == 19)
             {
                 bowlNumber++;
-                retAction = Action.Reset;
+                return Action.Reset;
             }
-            else
-            {
-                //Case: Strike on mid frame
-                if (bowlNumber % 2 == 0) bowlNumber += 2;
-                //Case: Strike on end frame
-                else bowlNumber++;
+            
+            //Case: Strike on mid frame
+            if (bowlNumber % 2 == 0) bowlNumber += 2;
+            //Case: Strike on end frame
+            else bowlNumber++;
 
-                retAction = Action.EndTurn;
-            }
+            return Action.EndTurn;
+        }
+
+        if (bowlNumber == 19)//19th frame
+        {
+            bowlNumber++;
+            //Case: Strike on two to last frame then normal bowl for 2 times
+            if (bowls[18] == 10) return Action.Tidy;
+            //Case: Reach till one to last frame but no spare or strike
+            if (bowls[18] + bowls[19] < 10) return Action.EndGame;
+            ////Case: Reach till one to last frame and got spare
+            if (bowls[18] + bowls[19] == 10) return Action.Reset;
+        }
+
+        //Mid frame
+        if (bowlNumber % 2 == 0)
+        {
+            bowlNumber++;
+            return Action.Tidy;
         }
         else
         {
-            //Mid frame
-            if (bowlNumber % 2 == 0)
-            {
-                bowlNumber++;
-                retAction = Action.Tidy;
-            }
-            else //End frame
-            {
-                if (bowlNumber == 19)//19th frame
-                {
-                    //Case: Strike on two to last frame then normal bowl for 2 times
-                    if (bowls[18] == 10) retAction = Action.Tidy;
-                    //Case: Reach till one to last frame but no spare or strike
-                    if (bowls[18] + pins < 10) retAction = Action.EndGame;
-                    ////Case: Reach till one to last frame and got spare
-                    if (bowls[18] + pins == 10) retAction = Action.Reset;
-                }
-                else
-                {
-                    if (bowls[bowlNumber - 1] + pins > 10) throw new UnityException("Mid frame and end frame pins' count exceed 10");
+            if (bowls[bowlNumber - 1] + bowls[bowlNumber] > 10) throw new UnityException("Mid frame and end frame pins' count exceed 10");
 
-                    retAction = Action.EndTurn;
-                }
-                bowlNumber++;
-            }
+            //End frame
+            bowlNumber++;
+            return Action.EndTurn;
         }
-
-        return retAction;
     }
 }
