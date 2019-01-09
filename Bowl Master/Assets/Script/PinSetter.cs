@@ -7,65 +7,64 @@ public class PinSetter : MonoBehaviour {
 
     public Text StandingPinText;
     public GameObject PinSet;
+    public bool BallLeftBox { get; set; }
 
     [SerializeField] private int lastStandingCount = -1;
     [SerializeField] private int currentStandingCount = 10;
 
     private Pin[] pins;
     private Ball ball;
-    private ActionMaster actionMaster;
     private Animator animator;
+    private readonly ActionMaster actionMaster = new ActionMaster();
 
     private float timeSinceLastChange;
-    private readonly float timeToWait = 3;
+    private const float TimeToWait = 3;
 
-    private bool ballEnteredBox = false;
 
     // Use this for initialization
-    void Start () {
+    private void Start () {
         pins = FindObjectsOfType<Pin>();
         ball = FindObjectOfType<Ball>();
-
-        actionMaster = new ActionMaster();
 
         animator = GetComponent<Animator>();
 	}
 
-    void SetTextDisplay(int count)
+    private void SetTextDisplay(int count)
     {
         StandingPinText.text = count.ToString();
     }
 
     private void Update()
     {
-        if (ballEnteredBox)
+        if (BallLeftBox)
         {
+            StandingPinText.color = new Color(1, 0, 0);
             UpdateStandingCountAndSettle();
         }
     }
 
-    void UpdateStandingCountAndSettle()
+    private void UpdateStandingCountAndSettle()
     {
-        int standing = CountStanding();
+        var standing = CountStanding();
         SetTextDisplay(standing);
 
-        float currentTime = Time.timeSinceLevelLoad;
+        var currentTime = Time.timeSinceLevelLoad;
         if (lastStandingCount != standing)
         {
             timeSinceLastChange = currentTime;
             lastStandingCount = standing;
         }
-        else if (timeSinceLastChange + timeToWait <= currentTime)
+        else if (timeSinceLastChange + TimeToWait <= currentTime)
         {
             PinsHaveSettled();
         }
     }
 
-    void PinsHaveSettled()
+    private void PinsHaveSettled()
     {
-        ballEnteredBox = false;
+        BallLeftBox = false;
 
-        int numberOfPinsFallen = currentStandingCount - lastStandingCount;
+        var numberOfPinsFallen = currentStandingCount - lastStandingCount;
         currentStandingCount = lastStandingCount;
 
         ActUponPinsFallen(numberOfPinsFallen);
@@ -79,7 +78,7 @@ public class PinSetter : MonoBehaviour {
 
     private void ActUponPinsFallen(int numberOfPinsFallen)
     {
-        ActionMaster.Action action = actionMaster.Bowl(numberOfPinsFallen);
+        var action = actionMaster.Bowl(numberOfPinsFallen);
         switch (action)
         {
             case ActionMaster.Action.Tidy:
@@ -88,6 +87,10 @@ public class PinSetter : MonoBehaviour {
             case ActionMaster.Action.Reset:
             case ActionMaster.Action.EndTurn:
                 animator.SetTrigger("Reset Trigger");
+                break;
+            case ActionMaster.Action.Null:
+                break;
+            case ActionMaster.Action.EndGame:
                 break;
             default:
                 throw new UnityException("Cannot handle other cases yet");
@@ -106,18 +109,9 @@ public class PinSetter : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private int CountStanding()
     {
-        if (other.GetComponent<Ball>())
-        {
-            ballEnteredBox = true;
-            StandingPinText.color = new Color(1, 0, 0);
-        }
-    }
-
-    int CountStanding()
-    {
-        int pinStanding = 0;
+        var pinStanding = 0;
 
         pins = FindObjectsOfType<Pin>();
         foreach (var pin in pins)
