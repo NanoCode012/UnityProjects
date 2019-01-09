@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 [TestFixture]
@@ -9,33 +10,39 @@ public class ActionMasterTest
     private readonly ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
     private readonly ActionMaster.Action endGame = ActionMaster.Action.EndGame;
 
-    private ActionMaster actionMaster;
+    private List<int> pinFalls;
 
     [SetUp]
     public void SetUp()
     {
-        actionMaster = new ActionMaster();
+        pinFalls = new List<int>();
     }
 
     /*Name convention: T##(METHOD_NAME)_(CONDITION)_(RETURN)*/
     [Test]
     public void T01Bowl_OneStrike_EndTurn()
     {
-        Assert.AreEqual(endTurn, actionMaster.Bowl(10));
+        pinFalls.Add(10);
+
+        Assert.AreEqual(endTurn, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
     public void T02Bowl_Bowl8_Tidy()
     {
-        Assert.AreEqual(tidy, actionMaster.Bowl(8));
+        pinFalls.Add(8);
+
+        Assert.AreEqual(tidy, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
     public void T03Bowl_Bowl15_Error()
     {
+        pinFalls.Add(15);
+        
         try
         {
-            actionMaster.Bowl(15);
+            ActionMaster.NextAction(pinFalls);
         }
         catch (UnityException)
         {
@@ -47,18 +54,20 @@ public class ActionMasterTest
     [Test]
     public void T04Bowl_BowlSpare_EndTurn()
     {
-        actionMaster.Bowl(2);
-        Assert.AreEqual(endTurn, actionMaster.Bowl(8));
+        pinFalls.AddRange(new int[] {2, 8});
+        
+        Assert.AreEqual(endTurn, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
     public void T05Bowl_BowlTillOneToLastFrameButNoSpareOrStrike_EndGame()
     {
-        for (int i = 0; i < 19; i++)
+        for (int i = 0; i < 20; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(1);
         }
-        Assert.AreEqual(endGame, actionMaster.Bowl(2));
+
+        Assert.AreEqual(endGame, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
@@ -66,9 +75,11 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 19; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(1);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(8));
+        pinFalls.Add(9);
+
+        Assert.AreEqual(reset, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
@@ -76,9 +87,11 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 18; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(1);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        pinFalls.Add(10);
+
+        Assert.AreEqual(reset, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
@@ -86,9 +99,11 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 19; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(0);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        pinFalls.Add(10);
+
+        Assert.AreEqual(reset, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
@@ -96,27 +111,34 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 18; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(1);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(10));
-        Assert.AreEqual(tidy, actionMaster.Bowl(8));
-        Assert.AreEqual(endGame, actionMaster.Bowl(2));
+
+        pinFalls.Add(10);
+        Assert.AreEqual(reset, ActionMaster.NextAction(pinFalls));
+
+        pinFalls.Add(8);
+        Assert.AreEqual(tidy, ActionMaster.NextAction(pinFalls));
+
+        pinFalls.Add(1);
+        Assert.AreEqual(endGame, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
     public void T10Bowl_Bowl10OnSecondGetSpare_EndTurn()
     {
-        actionMaster.Bowl(0);
-        Assert.AreEqual(endTurn, actionMaster.Bowl(10));
+        pinFalls = new List<int>(new int[] {0, 10});
+
+        Assert.AreEqual(endTurn, ActionMaster.NextAction(pinFalls));
     }
 
     [Test]
     public void T11Bowl_BowlMoreThan10ForSumOfTwoFrames_Error()
     {
-        actionMaster.Bowl(8);
+        pinFalls = new List<int>(new int[] { 8, 8 });
         try
         {
-            actionMaster.Bowl(8);
+            ActionMaster.NextAction(pinFalls);
         }
         catch (UnityException)
         {
@@ -130,16 +152,14 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 18; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(1);
         }
 
-        actionMaster.Bowl(10);
-        actionMaster.Bowl(10);
-        actionMaster.Bowl(10);
+        pinFalls.AddRange(new int[] {10, 10, 10, 10});
 
         try
         {
-            actionMaster.Bowl(2);
+            ActionMaster.NextAction(pinFalls);
         }
         catch (UnityException)
         {
@@ -153,10 +173,51 @@ public class ActionMasterTest
     {
         for (int i = 0; i < 18; i++)
         {
-            actionMaster.Bowl(2);
+            pinFalls.Add(0);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(10));
-        Assert.AreEqual(reset, actionMaster.Bowl(10));
-        Assert.AreEqual(endGame, actionMaster.Bowl(10));
+
+        pinFalls.Add(10);
+        Assert.AreEqual(reset, ActionMaster.NextAction(pinFalls));
+
+        pinFalls.Add(10);
+        Assert.AreEqual(reset, ActionMaster.NextAction(pinFalls));
+
+        pinFalls.Add(10);
+        Assert.AreEqual(endGame, ActionMaster.NextAction(pinFalls));
+    }
+
+    [Test]
+    public void T14Bowl_BowlNormalThen10_Error()
+    {
+        pinFalls = new List<int>(new int[] { 1, 10 });
+        try
+        {
+            ActionMaster.NextAction(pinFalls);
+        }
+        catch (UnityException)
+        {
+            Assert.Pass();
+        }
+        Assert.Fail("Test should error, but did not happen");
+    }
+
+    [Test]
+    public void T15Bowl_BowlTillTwoToLastFrameGetMoreThan0ThenGet10_Error()
+    {
+        for (int i = 0; i < 19; i++)
+        {
+            pinFalls.Add(1);
+        }
+        pinFalls.Add(10);
+
+        try
+        {
+            ActionMaster.NextAction(pinFalls);
+        }
+        catch (UnityException)
+        {
+            Assert.Pass();
+        }
+        Assert.Fail("Test should error, but did not happen");
     }
 }

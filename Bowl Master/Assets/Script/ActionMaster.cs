@@ -16,7 +16,7 @@ public class ActionMaster
         EndGame
     };
 
-    public Action Bowl(int pins)
+    public Action Bowl(int pins)//todo change to private
     {
         if (pins < 0 || pins > 10) throw new UnityException("Invalid pins");
 
@@ -35,6 +35,8 @@ public class ActionMaster
             //Case: Reach till one/two to last frame and got strike
             if (bowlNumber == 18 || bowlNumber == 19)
             {
+                if ((0 < bowls[18] && bowls[18] < 10) && (bowls[19] == 10)) throw new UnityException("Mid frame and end frame pins' count exceed 10");
+
                 bowlNumber++;
                 return Action.Reset;
             }
@@ -42,7 +44,12 @@ public class ActionMaster
             //Case: Strike on mid frame
             if (bowlNumber % 2 == 0) bowlNumber += 2;
             //Case: Strike on end frame
-            else bowlNumber++;
+            else
+            {
+                if (bowls[bowlNumber - 1] + bowls[bowlNumber] > 10) throw new UnityException("Mid frame and end frame pins' count exceed 10");
+
+                bowlNumber++;
+            }
 
             return Action.EndTurn;
         }
@@ -54,7 +61,7 @@ public class ActionMaster
             if (bowls[18] == 10) return Action.Tidy;
             //Case: Reach till one to last frame but no spare or strike
             if (bowls[18] + bowls[19] < 10) return Action.EndGame;
-            ////Case: Reach till one to last frame and got spare
+            //Case: Reach till one to last frame and got spare
             if (bowls[18] + bowls[19] == 10) return Action.Reset;
         }
 
@@ -72,5 +79,18 @@ public class ActionMaster
             bowlNumber++;
             return Action.EndTurn;
         }
+    }
+
+    public static Action NextAction(List<int> pinFalls)
+    {
+        var actionMaster = new ActionMaster();
+        var length = pinFalls.Count;
+
+        for (var i = 0; i < length - 1; i++)
+        {
+            actionMaster.Bowl(pinFalls[i]);
+        }
+
+        return actionMaster.Bowl(pinFalls[length - 1]);
     }
 }
