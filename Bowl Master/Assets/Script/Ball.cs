@@ -59,7 +59,8 @@ public class Ball : MonoBehaviour {
     public void Reset()
     {
         myRigidBody.position = startPos;
-        
+        myRigidBody.rotation = Quaternion.Euler(0f, 0f, 0f);
+
         myRigidBody.velocity = Vector3.zero;
         myRigidBody.angularVelocity = Vector3.zero;
         myRigidBody.useGravity = false;
