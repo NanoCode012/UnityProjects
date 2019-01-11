@@ -30,12 +30,14 @@ public class Pin : MonoBehaviour {
             && ((currentZRotation <= standingThresholdAngle) || (360 - standingThresholdAngle <= currentZRotation && currentZRotation <= 360 + standingThresholdAngle)));
     }
 
-    public void Raise()
+    public void RaiseIfStanding()
     {
         if (IsStanding())
         {
             myRigidBody.transform.Translate(Vector3.up * distToRaiseBy);
             myRigidBody.useGravity = false;
+
+            Reset();
         }
     }
 
@@ -50,6 +52,6 @@ public class Pin : MonoBehaviour {
         myRigidBody.velocity = Vector3.zero;
         myRigidBody.angularVelocity = Vector3.zero;
 
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        myRigidBody.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 }

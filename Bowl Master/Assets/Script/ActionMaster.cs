@@ -16,7 +16,7 @@ public class ActionMaster
         EndGame
     };
 
-    public Action Bowl(int pins)//todo change to private
+    private Action Bowl(int pins)//todo change to private
     {
         if (pins < 0 || pins > 10) throw new UnityException("Invalid pins");
 

@@ -220,4 +220,12 @@ public class ActionMasterTest
         }
         Assert.Fail("Test should error, but did not happen");
     }
+
+    [Test]
+    public void T16Bowl_Bowl0ThreeTimes_Tidy()
+    {
+        pinFalls = new List<int>(new int[] { 0, 0, 0 });
+
+        Assert.AreEqual(tidy, ActionMaster.NextAction(pinFalls));
+    }
 }
