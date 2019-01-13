@@ -26,7 +26,7 @@ public class ScoreMaster
         var scoreFrames = new List<int>();
         var length = rolls.Count;
 
-        for (var i = 0; i < length - 1 && scoreFrames.Count <= 9; i+=2)
+        for (var i = 0; i < length - 1 && scoreFrames.Count <= 9; i+=2)//Need next roll value available and limit scoreFrames' count to 10
         {
             var sum = rolls[i] + rolls[i + 1];
             if (sum >= 10)//Strike or spare then add the next roll value if available
