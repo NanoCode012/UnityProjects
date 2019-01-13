@@ -24,27 +24,17 @@ public class ScoreMaster
     public static List<int> GetScoreFrames(List<int> rolls)
     {
         var scoreFrames = new List<int>();
-        int length = rolls.Count;
+        var length = rolls.Count;
 
-        for (var i = 0; i < length; i+=2)
+        for (var i = 0; i < length - 1 && scoreFrames.Count <= 9; i+=2)
         {
-            if (rolls[i] == 10) 
+            var sum = rolls[i] + rolls[i + 1];
+            if (sum >= 10)//Strike or spare then add the next roll value if available
             {
-                if (i < length - 2)
-                {
-                    scoreFrames.Add(rolls[i] + rolls[i + 1] + rolls[i + 2]);
-                    i--;
-                }
+                if (i < length - 2) scoreFrames.Add(sum + rolls[i + 2]);
+                if (rolls[i] == 10) i--; //Strike frame only has one roll
             }
-            else if (i < length - 1 && scoreFrames.Count <= 9)
-            {
-                int sum = rolls[i] + rolls[i + 1];
-                if (sum == 10)
-                {
-                    if (i < length - 2) scoreFrames.Add(sum += rolls[i + 2]);
-                }
-                else scoreFrames.Add(sum);
-            }
+            else scoreFrames.Add(sum);
         }
 
         return scoreFrames;
