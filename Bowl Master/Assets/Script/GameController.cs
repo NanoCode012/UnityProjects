@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
     private Ball ball;
     private PinSetter pinSetter;
+    private ScoreDisplay scoreDisplay;
 
     private readonly List<int> pinsFallen = new List<int>();
 
@@ -14,16 +15,33 @@ public class GameController : MonoBehaviour {
     {
         ball = FindObjectOfType<Ball>();
         pinSetter = FindObjectOfType<PinSetter>();
+        scoreDisplay = FindObjectOfType<ScoreDisplay>();
     }
 
     public void Bowl(int numberOfPinsFallen)
     {
-        pinsFallen.Add(numberOfPinsFallen);
+        try
+        {
+		    ball.Reset();
 
-        var action = ActionMaster.NextAction(pinsFallen);
+		    pinsFallen.Add(numberOfPinsFallen);
 
-        pinSetter.DoAction(action);
-        ball.Reset();
+		    pinSetter.DoAction(ActionMaster.NextAction(pinsFallen));
+
+        }
+        catch
+        {
+            Debug.LogWarning("Something went wrong in Bowl");
+        }
+
+        try
+        {
+            scoreDisplay.FillRollCard(pinsFallen);
+        }
+        catch
+        {
+            Debug.LogWarning("Something went wrong with FillRollCard");
+        }
     }
 
     

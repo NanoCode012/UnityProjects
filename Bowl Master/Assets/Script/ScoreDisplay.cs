@@ -20,8 +20,8 @@ public class ScoreDisplay : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void FillRollCard(List<int> rolls)
+    {
+        rollTexts[-1].text = "0";
+    }
 }
