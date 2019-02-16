@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreMaster
+public static class ScoreMaster
 {
 
     public static List<int> GetScoreCumulative(List<int> rolls)
