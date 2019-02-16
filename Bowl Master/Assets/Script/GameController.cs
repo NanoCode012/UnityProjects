@@ -29,9 +29,9 @@ public class GameController : MonoBehaviour {
 		    pinSetter.DoAction(ActionMaster.NextAction(pinsFallen));
 
         }
-        catch
+        catch(Exception e)
         {
-            Debug.LogWarning("Something went wrong in Bowl");
+            Debug.LogWarning("Something went wrong in Bowl" + e);
         }
 
         try

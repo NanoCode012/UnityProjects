@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent (typeof(Ball))]
 public class BallDragLaunch : MonoBehaviour {
 
+    public static bool GameEnd { get; set; }
+
     private Ball ball;
 
     private Vector3 startPos;
@@ -13,11 +15,12 @@ public class BallDragLaunch : MonoBehaviour {
     // Use this for initialization
     void Start () {
         ball = GetComponent<Ball>();
+        GameEnd = false;
 	}
 
     public void DragStart()
     {
-        if (!ball.IsLaunched)
+        if (!ball.IsLaunched && !GameEnd)
         {
             startPos = Input.mousePosition;
             startTime = Time.realtimeSinceStartup;
@@ -26,7 +29,7 @@ public class BallDragLaunch : MonoBehaviour {
 
     public void DragEnd()
     {
-        if (!ball.IsLaunched)
+        if (!ball.IsLaunched && !GameEnd)
         {
             Vector3 endPos = Input.mousePosition;
             Vector3 offset = endPos - startPos;

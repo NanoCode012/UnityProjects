@@ -33,9 +33,11 @@ public class PinSetter : MonoBehaviour {
                 animator.SetTrigger("Reset Trigger");
                 pinCounter.RenewPinCount();
                 break;
+            case ActionMaster.Action.EndGame:
+                BallDragLaunch.GameEnd = true;
+                break;
             default:
                 throw new UnityException("Cannot handle other cases yet");
-                break;
         }
     }
 
