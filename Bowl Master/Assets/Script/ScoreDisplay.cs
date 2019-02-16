@@ -54,7 +54,7 @@ public class ScoreDisplay : MonoBehaviour {
                 if (frame < 18) res += " ";
                 frame++;
             }
-            else if (frame % 2 != 0 && rolls[i] + rolls[i - 1] == 10 && frame < 20) res += "/";
+            else if (frame % 2 != 0 && rolls[i] + rolls[i - 1] == 10) res += "/";
             else res += rolls[i];
         }
 
