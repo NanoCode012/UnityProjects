@@ -36,7 +36,8 @@ public class GameController : MonoBehaviour {
 
         try
         {
-            scoreDisplay.FillRollCard(pinsFallen);
+            scoreDisplay.FillRolls(pinsFallen);
+            scoreDisplay.FillFrames(ScoreMaster.GetScoreCumulative(pinsFallen));
         }
         catch
         {
