@@ -13,13 +13,11 @@ public class Player : MonoBehaviour
     private Transform[] spawnPoints;
     private readonly System.Random rand = new System.Random();
 
-
     // Start is called before the first frame update
     void Start()
     {
         spawnPoints = SpawnPointParent.GetComponentsInChildren<Transform>();
         playerTransform = GetComponent<Transform>();
-        
     }
 
     // Update is called once per frame
